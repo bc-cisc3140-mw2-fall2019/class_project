@@ -9,7 +9,9 @@
 </head>
 
 <body>
-
+    {% for user in info %}
+    <p> {{ user.ID }}, current date: {{ user.dateCreated }}.</p>
+    {% endfor %}
 </body>
 
 </html>
