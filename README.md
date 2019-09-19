@@ -15,3 +15,7 @@ This is the class project for Fall 2019.
 ## Run
 
 `python app.py` (in the app directory)
+
+If that doesn't work:
+- `export FLASK_APP=app.py` (on windows it's "set" instead of "export")
+- `flask run`
