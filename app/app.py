@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, url_for
 import json
 import datetime
 app = Flask(__name__, template_folder="templates")
-
+#test comment to see if i can push to git repo -stan
 date = datetime.datetime.now()
 fakeData = [
     {
