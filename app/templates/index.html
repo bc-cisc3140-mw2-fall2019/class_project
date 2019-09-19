@@ -11,9 +11,11 @@
 </head>
 
 <body>
-    {% for user in info %}
+    <!-- {% for user in info %}
     <p> {{ user.ID }}, current date: {{ user.dateCreated }}.</p>
-    {% endfor %}
+    {% endfor %} -->
+
+    <a href="{{ url_for('register') }}">Register</a>
 </body>
 <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 
