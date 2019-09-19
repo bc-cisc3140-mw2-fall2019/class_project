@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register</title>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+
+<body>
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <fieldset>
+            <legend>Register</legend>
+            <div>
+                {{ form.user.label() }}
+                {{ form.user() }}
+            </div>
+            <div>
+                {{ form.email.label() }}
+                {{ form.email() }}
+            </div>
+            <div>
+                {{ form.password.label() }}
+                {{ form.password() }}
+            </div>
+            <div>
+                {{ form.confirmPassword.label() }}
+                {{ form.confirmPassword() }}
+            </div>
+        </fieldset>
+        <div>
+            {{ form.submit() }}
+        </div>
+    </form>
+    <div>
+        Have an account? <a href="{{ url_for('login') }}">Login.</a>
+    </div>
+</body>
+
+</html>
