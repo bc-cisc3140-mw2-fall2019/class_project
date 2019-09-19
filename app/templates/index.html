@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Home</title>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
 </head>
 
 <body>
@@ -13,5 +15,6 @@
     <p> {{ user.ID }}, current date: {{ user.dateCreated }}.</p>
     {% endfor %}
 </body>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
 
 </html>
