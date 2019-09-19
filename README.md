@@ -11,3 +11,7 @@ This is the class project for Fall 2019.
 - [Python](https://www.python.org/downloads/)
 - Flask: type in your command line: `pip install flask`
 - wtforms: `pip install flask-wtf` (basic form functionality for now - not neccesary)
+
+## Run
+
+`python app.py` (in the app directory)
