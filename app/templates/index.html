@@ -15,7 +15,17 @@
     <p> {{ user.ID }}, current date: {{ user.dateCreated }}.</p>
     {% endfor %} -->
 
-    <a href="{{ url_for('register') }}">Register</a>
+    <a href="{{ url_for('register') }}">Register</a> <br>
+    <a href="{{ url_for('login') }}">Login</a>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div>
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
 </body>
 <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 

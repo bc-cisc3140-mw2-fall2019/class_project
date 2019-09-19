@@ -10,6 +10,7 @@
 </head>
 <body>
     <form method="POST" action="">
+        {{ form.hidden_tag() }}
         <fieldset>
             <legend>Login</legend>
             <div>
@@ -25,5 +26,8 @@
             {{ form.submit() }}
         </div>
     </form>
+    <div>
+        Don't have an account? <a href="{{ url_for('register') }}">Register here.</a>
+    </div>
 </body>
 </html>

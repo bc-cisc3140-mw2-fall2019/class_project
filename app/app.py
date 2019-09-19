@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, url_for
+from flask import Flask, render_template, request, url_for, flash, redirect
 from forms import FormRegister, FormLogin
 import json
 import datetime
@@ -28,12 +28,25 @@ def home():
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     form = FormRegister()
+    # TEST - This allows for basic registration validation, not complex.
+    if form.validate_on_submit():
+        flash(f'Account created for {form.user.data}!')
+        return redirect(url_for('home'))
+    #endtest
     return render_template('register.html', form=form)
 
 
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     form = FormLogin()
+    # TEST - Allowing this user+pass combo - Change with DB incorporation.
+    if form.validate_on_submit():
+        if form.user.data == 'admin1' and form.password.data == 'password':
+            flash(f'Successful Login! Welcome {form.user.data}!', 'success')
+            return redirect(url_for('home'))
+        else:
+            flash('Unsuccessful Login', 'danger')
+    #endtest
     return render_template('login.html', form=form)
 
 
