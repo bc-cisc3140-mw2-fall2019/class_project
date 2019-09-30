@@ -7,7 +7,7 @@ import datetime
 app = Flask(__name__, template_folder="templates")
 Bootstrap (app)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:test123@127.0.0.1:3306/testdatabase'#setup a connection mysql://username:password@localhost/database https://flask-sqlalchemy.palletsprojects.com/en/2.x/config/#connection-uri-format not sure why "+pymysql" is needed but without it, it didnt let me connect. cant find where i found the fix
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://testuser:test123@127.0.0.1:3306/testdatabase'#setup a connection mysql://username:password@localhost/database https://flask-sqlalchemy.palletsprojects.com/en/2.x/config/#connection-uri-format not sure why "+pymysql" is needed but without it, it didnt let me connect. cant find where i found the fix
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False #removes warnings 
 
 app.config['SECRET_KEY'] = '24293eea8e681f56845df519bac0a473'
