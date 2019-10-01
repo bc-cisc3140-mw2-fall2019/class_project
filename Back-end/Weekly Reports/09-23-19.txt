@@ -1,0 +1,26 @@
+What has your team accomplished in the past week? 
+
+-We were deciding on a language for the backend, and we came to the conclusion to do it in 
+python because it's a new experience. Additionally, we created a basic template for the 
+website as a whole (in folders). This includes the app folder for python, static for css/js,
+and templates for html files.
+
+Did your team encounter unexpected hurdles?
+
+-Where to even begin on the backend since most of us are relatively unexperienced in python.
+
+How will your team work through any hurdle(s)? 
+
+-We have a group chat designated to the group so we can discuss any issues we encounter.
+
+What tools worked, what didn’t? 
+
+-We are mainly using VS code/sublime or any editor that works with git. 
+
+Will there be any shifts or changes in the features your team will be working on? 
+
+-This depends on the tasks given or expected from other teams such as the product team.
+
+Will scheduling be affected? Are you waiting on another team for any features to finish? 
+
+-We need opinions on certain things. Integration with database is a must.

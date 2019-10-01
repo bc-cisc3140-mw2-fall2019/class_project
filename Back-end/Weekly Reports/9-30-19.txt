@@ -1,0 +1,35 @@
+Recap of what’s been done, what’s to be done in the coming week by your team. 
+
+    In the coming weeks we will need to have an official database connection setup as well as having all html pages created to be ready for use
+
+What has your team accomplished in the past week? 
+
+    our team setup a dummy MySQL database just to test connections and see if correct fields are being stored in correct positions.
+    We used SQL alchemy to create these connections.
+    we also have to figure out how to have a global connection to a server so each member can test and tweak database instead of one on their local server.
+
+Did your team encounter unexpected hurdles? 
+
+    The team experienced some thrown errors when connecting to a database which mostly were incorrect fields going to incorrect columns.
+    connecting to database was also a challenge as different things needed to be imported in order to make a connection.
+
+How will your team work through any hurdle(s)? 
+
+    Our team needs to gather more information and start working with the database team to see the architecture for the database so we can use correct fields to store correct information in correct columns
+
+What tools worked, what didn’t? 
+
+    SQL alchemy worked fine and was pretty easy to setup once one person got it.
+    i also used MySQL workbench to setup a small database to store passwords.
+
+Discuss with your team as a group what should be tackled for the upcoming week. 
+
+    in the upcoming week the database connections should be setup for every backend team memeber.
+
+Will there be any shifts or changes in the features your team will be working on? 
+
+    yes the database connections were just tests and real database still needs to be created and connected to, to store fields.
+
+Will scheduling be affected? Are you waiting on another team for any features to finish?
+
+    Database team needs to design and setup a database for the backend to finally start to fully work on the website and its features.
