@@ -1,11 +1,11 @@
 from flask import Flask, render_template, request, url_for, flash, redirect
 from flask_sqlalchemy  import SQLAlchemy # pip install Flask-SQLAlchemy https://www.youtube.com/watch?v=Tu4vRU4lt6k
-from flask_bootstrap import Bootstrap # pip install flask-bootstrap
+#from flask_bootstrap import Bootstrap # pip install flask-bootstrap
 from forms import FormRegister, FormLogin
 import json
 import datetime
 app = Flask(__name__, template_folder="templates")
-Bootstrap (app)
+#Bootstrap (app)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://testuser:test123@127.0.0.1:3306/testdatabase'#setup a connection mysql://username:password@localhost/database https://flask-sqlalchemy.palletsprojects.com/en/2.x/config/#connection-uri-format not sure why "+pymysql" is needed but without it, it didnt let me connect. cant find where i found the fix
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False #removes warnings 
