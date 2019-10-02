@@ -6,6 +6,8 @@ from wtforms.validators import DataRequired, Length, Email, EqualTo
 
 
 class FormRegister(FlaskForm):
+    fname = StringField('First Name', validators=[DataRequired()])
+    lname = StringField('Last Name', validators=[DataRequired()])
     user = StringField('Username', validators=[DataRequired(), Length(min=5, max=15)])
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired(), Length(min=5, max=15)])
