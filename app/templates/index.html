@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
-    <a href="{{ url_for('register') }}">Register</a> <br>
-    <a href="{{ url_for('login') }}">Login</a>
+    <!-- <a href="{{ url_for('register') }}">Register</a> <br>
+    <a href="{{ url_for('login') }}">Login</a> -->
     {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
             {% for category, message in messages %}
