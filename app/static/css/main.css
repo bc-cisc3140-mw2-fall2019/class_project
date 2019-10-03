@@ -1,3 +1,28 @@
 body {
     color: blue;
 }
+
+header {
+    background-color: #add8e6;
+    /*margin: 0 auto;
+    width: 100%;
+    left: 0;
+    top: 0;*/
+}
+
+h1 {
+	margin: 0;
+	padding: 0;
+}
+
+form {
+	text-align: center;
+}
+
+.formLabel {
+	margin-top: 4.5px;
+}
+
+#fnameError, #lnameError, #userError, #emailError, #passError, #confirmError {
+	color: #ff0000;
+}

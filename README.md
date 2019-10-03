@@ -9,8 +9,10 @@ This is the class project for Fall 2019.
 ## Requirements
 
 - [Python](https://www.python.org/downloads/)
-- Flask: type in your command line: `pip install flask`
-- wtforms: `pip install flask-wtf` (basic form functionality for now - not neccesary)
+- `pip install flask` (Flask)
+- `pip install flask-wtf` (wtf-forms: basic form functionality for now - not neccesary)
+- `pip install Flask-SQLAlchemy` (SQL Alchemy)
+- `pip install bcrypt` (hash passwords)
 
 ## Run
 

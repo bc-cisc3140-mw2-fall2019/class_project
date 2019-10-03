@@ -1,0 +1,54 @@
+Tests:
+Forgot Password page:
+Enter correct email address: should display message, email should be sent with a link to reset password
+Enter incorrect email address: should display message that email doesn’t exist & suggests to sign up
+
+Reset Password page:
+Enter new password: users account should be updated with new password, takes user to original login page to re-log into account
+
+General Project page:
+Check for header, “hello username”
+Click project name: should redirect to view full project specific page
+
+Specific project page:
+Check for header, “hello username”
+Apply if max members is full: button shouldn’t appear to apply
+Apply if max members is not full: button should appear, when clicked: displays  “your request has been sent”, sends request to Ops inquiries tab
+
+Homepage:
+Login/sign up – redirects you to login/signup page
+sortby: gives drop down menu and then sorts based on what user chooses
+projects – not clickable unless logged in
+
+Login page:
+Input existing email & correct password, press login – logs in and redirects you to homepage & displays username
+Input existing email & incorrect password, press login – sends message “incorrect password”
+input nonexisting email – asks to sign up
+click on forgot password – redirects you to forgot password page
+click on don’t have an account – redirects you to sign up page 
+
+Profile page(inquries tab):
+Button edit profile – should redirect to about page to edit all information
+profile pic & username should match the user’s
+username – click on and redirects to that users profile
+click check – adds them to that project, adds them to users profile
+click x – sends them a message/email that they were denied
+
+Profile page(regular view):  
+Check for header, “hello username”, username displayed, is different from hello username, picture displayed
+General: Information should match what was inputted&saved
+
+Profile page(user view):
+Button edit profile – should redirect to about page to edit all information
+profile pic & username should match the user’s
+tabs – should be able to switch between all of them
+current projects – project names should be able to clicked on/viewed
+
+Sign-Up page:
+Must input everything: if blanks, message should pop up
+username – if it exists it should say it exists, and offer to login instead
+email address must be valid - @email.com, if email exists offer to login
+password must be more than 6 letters,numbers,symbols
+click sign up- should receive message & email that you signed up, with your inputted username, should log you in or take you to the login page
+
+

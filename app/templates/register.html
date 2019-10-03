@@ -1,27 +1,43 @@
+<!-- Hi, Test -->
 {% extends "layout.html" %}
-    {% block content %}
-    <form method="POST" action="">
+{% block content %}
+    <form name="registerForm" method="POST" action="">
         {{ form.hidden_tag() }}
         <fieldset>
             <legend>Register</legend>
-            <div>
+			
+			<div class="formLabel">
+			{{ form.fname.label() }}
+			<span onfocusout="validFName()" required> {{ form.fname() }} </span>
+	    
+			{{ form.lname.label() }}
+			<span onfocusout="validLName()" required> {{ form.lname() }} </span> <br>
+			<div id = "fnameError"></div>
+			<div id = "lnameError"></div>
+			</div>
+			
+			<div class="formLabel">
                 {{ form.user.label() }}
-                {{ form.user() }}
+            <span onfocusout="validUser()" required> {{ form.user() }} </span> <br>
+			<div id = "userError"></div>
             </div>
-            <div>
+			<div class="formLabel">
                 {{ form.email.label() }}
-                {{ form.email() }}
+            <span onfocusout="validEmail()" required> {{ form.email() }} </span> <br>
+			<div id = "emailError"></div>
             </div>
-            <div>
+            <div class="formLabel">
                 {{ form.password.label() }}
-                {{ form.password() }}
+            <span onfocusout="validPass();" required> {{ form.password() }} </span> <br>
+			<div id = "passError"></div>
             </div>
-            <div>
+            <div class="formLabel">
                 {{ form.confirmPassword.label() }}
-                {{ form.confirmPassword() }}
+            <span onfocusout="validConfirmPass()" required> {{ form.confirmPassword() }} </span> <br>
+			<div id = "confirmError"></div>
             </div>
         </fieldset>
-        <div>
+        <div class="formLabel">
             {{ form.submit() }}
         </div>
     </form>
