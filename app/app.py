@@ -36,15 +36,14 @@ def register():
     if request.method == 'GET':
         return render_template('register.html',form=form)
 #------------------------------------------
-    hashed_password = bcrypt.generate_password_hash(
-        form.password.data).decode('utf-8')
-    registration = registerUser(fname=request.form.get('fname'), lname=request.form.get('lname'), email=request.form.get('email'), username=request.form.get('user'), password=hashed_password)  # registration variable that will hold our registration class registerUser(id, email, user, password) each field is a column in our MySQL database
-    
-    db.session.add(registration) #we capture the session into our database 
-    db.session.commit() #and after we capture the session we commit it into the database
-
     if form.validate_on_submit():
-        #hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        
+        registration = registerUser(fname=request.form.get('fname'), lname=request.form.get('lname'), email=request.form.get('email'), username=request.form.get('user'), password=hashed_password)  # registration variable that will hold our registration class registerUser(id, email, user, password) each field is a column in our MySQL database
+
+        db.session.add(registration)  # we capture the session into our database
+        db.session.commit()  # and after we capture the session we commit it into the database
+        
         flash(f'Account created for {form.user.data}!')
         return redirect(url_for('login'))
 
