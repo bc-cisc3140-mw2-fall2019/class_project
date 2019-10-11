@@ -4,13 +4,15 @@
         {{ form.hidden_tag() }}
         <fieldset>
             <legend>Login</legend>
-            <div>
+            <div class="formLabel">
                 {{ form.user.label() }}
-                {{ form.user() }}
+                <span onfocusout="validUser()" required> {{ form.user() }} </span> <br>
+				<div id = "userError"></div>
             </div>
-            <div>
+            <div class="formLabel">
                 {{ form.password.label() }}
-                {{ form.password() }}
+                <span onfocusout="validPass();" required> {{ form.password() }} </span> <br>
+				<div id = "passError"></div>
             </div>
             <div class="form-check">
                 {{ form.remember(class="form-check-input") }}

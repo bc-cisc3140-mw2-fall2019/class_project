@@ -95,7 +95,7 @@ function validPass() {
         document.getElementById('passError').innerHTML = "Please type in your password.";
         document.getElementById('passError').style.visibility = "visible";
     }
-    else if (pass.length < 8 && !pas.match(check)) {
+    else if (pass.length < 8 && !pass.match(check)) {
         document.getElementById('password').style.borderColor = "red";
         document.getElementById('passError').innerHTML = "Password must contain at least 8 characters and can only have these symbols: !@#$%^&*( )";
         document.getElementById('passError').style.visibility = "visible";
