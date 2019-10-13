@@ -56,8 +56,14 @@
         <li class="nav-item">
           <a class="nav-link disabled" href="#">Disabled</a>
         </li> -->
-        <span>
-          {{ current_user.username }}
+        <li class="nav-item">
+          <p class="font-weight-bold nav-link text-primary">
+            {% if current_user.is_authenticated %}
+            Hello! {{ current_user.username }}
+            {% else %}
+            {% endif %}
+          </p>
+        </li>
         </span>
       </ul>
       <form class="form-inline my-2 my-lg-0">

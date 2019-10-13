@@ -5,7 +5,13 @@ from forms import FormRegister, FormLogin
 from flask_login import LoginManager, UserMixin, login_user, current_user, logout_user, login_required
 app = Flask(__name__, template_folder="templates")
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://user:password@127.0.0.1:3306/dbName'#setup a connection mysql://username:password@localhost/database https://flask-sqlalchemy.palletsprojects.com/en/2.x/config/#connection-uri-format not sure why "+pymysql" is needed but without it, it didnt let me connect. cant find where i found the fix
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://user:password@127.0.0.1:3306/dbName'#setup a connection mysql://username:password@localhost/database https://flask-sqlalchemy.palletsprojects.com/en/2.x/config/#connection-uri-format not sure why "+pymysql" is needed but without it, it didnt let me connect. cant find where i found the fix
+app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+mysqlconnector://{username}:{password}@{hostname}/{databasename}".format(
+    username="user",
+    password="password",
+    hostname="127.0.0.1:3306",
+    databasename="dbName",
+)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False #removes warnings 
 app.config['SECRET_KEY'] = '24293eea8e681f56845df519bac0a473'
 
