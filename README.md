@@ -12,7 +12,7 @@ This is the class project for Fall 2019.
 - `pip install flask` (Flask)
 - `pip install flask-wtf` (wtf-forms: basic form functionality for now - not neccesary)
 - `pip install Flask-SQLAlchemy` (SQL Alchemy)
-- `pip install bcrypt` (hash passwords)
+- `pip install flask-bcrypt` (hash passwords)
 - `pip install flask-login` (login manager)
 
 ## Run
