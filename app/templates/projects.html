@@ -1,0 +1,99 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+nav{
+	float: left;
+	width: 30%;
+	height: 1000px;
+	background: #f3f3f3;
+	padding: 0;
+}
+
+p.username{
+	border: solid;
+	text-align: center;
+	margin: 10%;
+	width: 59%;
+	padding: 10%;
+	border-width: 4px;
+	border-color: #ffffff;
+}
+
+button.edit{
+	height: 10%;
+	width: 80%;
+	margin: 10%;
+	padding：10%;
+	border: solid;
+	border-width: 4px;
+	border-color: #ffffff;
+}
+
+article{
+	float:left;
+	width: 70%;
+	height: 1000px;
+	padding: 0;
+	background-color: #333333;
+}
+
+section:after{
+	content: "";
+	display: table;
+	clear: both;
+}
+</style>
+</head>
+
+<body>
+<section>
+	<nav>
+		<img src ="../../bulldog.png" alt="brooklyn college icon" height=50% width=100%>
+		<br />
+		<p class="username"> username </p>
+		<br />
+		<button class="edit"> EDIT PROFILE</button>
+	</nav>
+	
+	<article>
+		<div class="w3-sidebar w3-bar-block w3-light-grey w3-card" style="width:130px">
+			<h5 class="w3-bar-item">Menu</h5>
+			<button class="w3-bar-item w3-button tablink" onclick="openCity(event, 'Current Projects')">Current Projects</button>
+			<button class="w3-bar-item w3-button tablink" onclick="openCity(event, 'Applied Projects')">Applied Projects</button>
+			<button class="w3-bar-item w3-button tablink" onclick="openCity(event, 'Completed Projects')">Completed Projects</button>
+			<button class="w3-bar-item w3-button tablink" onclick="openCity(event, 'Inquiries')">Inquiries</button>
+			<button class="w3-bar-item w3-button tablink" onclick="openCity(event, 'About Me')">About Me</button>
+
+		</div>
+
+		<div style="margin-left:130px">
+  
+
+			<div id="Current Projects" class="w3-container city" style="display:none">
+				<p> Project Name></p>
+				<h3> short Description</h3>
+			</div>
+
+			<div id="Applied Project" class="w3-container city" style="display:none">
+				
+			</div>
+
+			<div id="Completed Projects" class="w3-container city" style="display:none">
+
+			</div>
+
+			<div id="Inquiries" class="w3-container city" style="display:none">
+
+			</div>
+			<div id="About Me" class="w3-container city" style="display:none">
+
+			</div>
+
+		</div>	
+	</article>
+</section>
+</body>
+</html>			
