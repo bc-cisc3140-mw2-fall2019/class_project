@@ -94,5 +94,11 @@ def account():
     return render_template("account.html")
 
 
+@app.route("/projects")
+@login_required
+def projects():
+    return render_template("projects.html")
+
+
 if __name__ == '__main__':
     app.run(debug=True)
