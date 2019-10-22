@@ -2,6 +2,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <style>
 nav{
 	float: left;
@@ -44,35 +45,6 @@ section:after{
 	display: table;
 	clear: both;
 }
-ul{
-	list-style-type: none;
-	padding; 0px;
-	margin: 0px;
-	overflow: hidden;
-	width: 100%;
-	background-color: #222;
-}
-
-li.buttongroup{
-	float: left;
-}
-
-a.menubutton{
-	color: white;
-	text-align: center;
-	text-decoration: none;
-	display: block;
-	height: 40px;
-	width: 85px;
-	margin: 1px;
-	padding: 15px;
-}
-
-li a:hover {
-    background-color: #111;
-}
-
-
 </style>
 </head>
 
@@ -83,18 +55,14 @@ li a:hover {
 		<br />
 		<p class="username"> username </p>
 		<br />
-		<button class="edit"> EDIT PROFILE</button>
+		<button class="edit"> SAVE </button>
 	</nav>
 	
 	<article>
-		<ul class="w3-sidebar w3-bar-block w3-light-grey w3-card">
-			<li class="buttongroup"><a class="menubutton" href="#Menu">Menu</a></li>
-			<li class="buttongroup"><a class="menubutton" href="#Menu" onclick="openCity(event, 'Current Projects')">Current Projects</a></li>
-			<li class="buttongroup"><a class="menubutton" href="#Menu" onclick="openCity(event, 'Applied Projects')">Applied Projects</a></li>
-			<li class="buttongroup"><a class="menubutton" href="#Menu" onclick="openCity(event, 'Completed Projects')">Completed Projects</a></li>
-			<li class="buttongroup"><a class="menubutton" href="#Menu" onclick="openCity(event, 'Inquiries')">Inquiries</a></li>
-			<li class="buttongroup"><a class="menubutton" href="#Menu" onclick="openCity(event, 'About Me')">About Me</a></li>
-		</ul>
+		<div class="w3-sidebar w3-bar-block w3-light-grey w3-card" style="width:130px">
+			<h5 class="w3-bar-item">Edit Profile</h5>
+
+		</div>
 
 		<div style="margin-left:130px">
   
