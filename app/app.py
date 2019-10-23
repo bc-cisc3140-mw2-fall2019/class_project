@@ -100,5 +100,11 @@ def projects():
     return render_template("projects.html")
 
 
+@app.route("/editProfile")
+@login_required
+def editProfile():
+    return render_template("editProfile.html")
+
+
 if __name__ == '__main__':
     app.run(debug=True)

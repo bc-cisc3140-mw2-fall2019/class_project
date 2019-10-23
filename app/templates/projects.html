@@ -2,78 +2,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-nav{
-	float: left;
-	width: 30%;
-	height: 1000px;
-	background: #f3f3f3;
-	padding: 0;
-}
-
-p.username{
-	border: solid;
-	text-align: center;
-	margin: 10%;
-	width: 59%;
-	padding: 10%;
-	border-width: 4px;
-	border-color: #ffffff;
-}
-
-button.edit{
-	height: 10%;
-	width: 80%;
-	margin: 10%;
-	padding：10%;
-	border: solid;
-	border-width: 4px;
-	border-color: #ffffff;
-}
-
-article{
-	float:left;
-	width: 70%;
-	height: 1000px;
-	padding: 0;
-	background-color: #333333;
-}
-
-section:after{
-	content: "";
-	display: table;
-	clear: both;
-}
-ul{
-	list-style-type: none;
-	padding; 0px;
-	margin: 0px;
-	overflow: hidden;
-	width: 100%;
-	background-color: #222;
-}
-
-li.buttongroup{
-	float: left;
-}
-
-a.menubutton{
-	color: white;
-	text-align: center;
-	text-decoration: none;
-	display: block;
-	height: 40px;
-	width: 85px;
-	margin: 1px;
-	padding: 15px;
-}
-
-li a:hover {
-    background-color: #111;
-}
-
-
-</style>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/projects.css') }}">
 </head>
 
 <body>
@@ -81,13 +10,19 @@ li a:hover {
 	<nav>
 		<img src ="../../bulldog.png" alt="brooklyn college icon" height=50% width=100%>
 		<br />
-		<p class="username"> username </p>
+		<p class="username"> 
+			{% if current_user.is_authenticated %}
+			{{ current_user.username }}
+			{% else %}
+			{% endif %}
+		</p>
 		<br />
-		<button class="edit"> EDIT PROFILE</button>
+		<button class="edit"><a class="nav-link" href="{{ url_for('editProfile') }}">EDIT PROFILE</a></button>
 	</nav>
 	
 	<article>
 		<ul class="w3-sidebar w3-bar-block w3-light-grey w3-card">
+			<li class="buttongroup"><a class="menubutton" href="{{ url_for('home') }}">Home</a></li>
 			<li class="buttongroup"><a class="menubutton" href="#Menu">Menu</a></li>
 			<li class="buttongroup"><a class="menubutton" href="#Menu" onclick="openCity(event, 'Current Projects')">Current Projects</a></li>
 			<li class="buttongroup"><a class="menubutton" href="#Menu" onclick="openCity(event, 'Applied Projects')">Applied Projects</a></li>

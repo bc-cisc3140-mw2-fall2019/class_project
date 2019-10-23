@@ -3,49 +3,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<style>
-nav{
-	float: left;
-	width: 30%;
-	height: 1000px;
-	background: #f3f3f3;
-	padding: 0;
-}
-
-p.username{
-	border: solid;
-	text-align: center;
-	margin: 10%;
-	width: 59%;
-	padding: 10%;
-	border-width: 4px;
-	border-color: #ffffff;
-}
-
-button.edit{
-	height: 10%;
-	width: 80%;
-	margin: 10%;
-	padding：10%;
-	border: solid;
-	border-width: 4px;
-	border-color: #ffffff;
-}
-
-article{
-	float:left;
-	width: 70%;
-	height: 1000px;
-	padding: 0;
-	background-color: #333333;
-}
-
-section:after{
-	content: "";
-	display: table;
-	clear: both;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/editProfile.css') }}">
 </head>
 
 <body>
