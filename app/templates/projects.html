@@ -1,8 +1,11 @@
+<!-- Python code is temporarily disabled until a route is implemented. -->
+
 <html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/projects.css') }}">
+<link rel="stylesheet" type="text/css" href="../static/css/projects.css">
+
 </head>
 
 <body>
@@ -10,52 +13,72 @@
 	<nav>
 		<img src ="../../bulldog.png" alt="brooklyn college icon" height=50% width=100%>
 		<br />
-		<p class="username"> 
+<!--		<p class="username"> 
 			{% if current_user.is_authenticated %}
 			{{ current_user.username }}
 			{% else %}
 			{% endif %}
-		</p>
+		</p> -->
+		<p class="username"> username </p>
 		<br />
-		<button class="edit"><a class="nav-link" href="{{ url_for('editProfile') }}">EDIT PROFILE</a></button>
+		<button class="edit"> EDIT PROFILE</button>
+		<!-- <button class="edit"><a class="nav-link" href="{{ url_for('editProfile') }}">EDIT PROFILE</a></button> -->
 	</nav>
 	
 	<article>
-		<ul class="w3-sidebar w3-bar-block w3-light-grey w3-card">
-			<li class="buttongroup"><a class="menubutton" href="{{ url_for('home') }}">Home</a></li>
-			<li class="buttongroup"><a class="menubutton" href="#Menu">Menu</a></li>
-			<li class="buttongroup"><a class="menubutton" href="#Menu" onclick="openCity(event, 'Current Projects')">Current Projects</a></li>
-			<li class="buttongroup"><a class="menubutton" href="#Menu" onclick="openCity(event, 'Applied Projects')">Applied Projects</a></li>
-			<li class="buttongroup"><a class="menubutton" href="#Menu" onclick="openCity(event, 'Completed Projects')">Completed Projects</a></li>
-			<li class="buttongroup"><a class="menubutton" href="#Menu" onclick="openCity(event, 'Inquiries')">Inquiries</a></li>
-			<li class="buttongroup"><a class="menubutton" href="#Menu" onclick="openCity(event, 'About Me')">About Me</a></li>
+		<ul>
+			<li class="buttongroup"><a class="menubutton" href="#Current_Projects" onclick="tab(event, 'Current_Projects')">Current Projects</a></li>
+			<li class="buttongroup"><a class="menubutton" href="#Applied_Projects" onclick="tab(event, 'Applied_Projects')">Applied Projects</a></li>
+			<li class="buttongroup"><a class="menubutton" href="#Completed_Projects" onclick="tab(event, 'Completed_Projects')">Completed Projects</a></li>
+			<li class="buttongroup"><a class="menubutton" href="#Inquiries" onclick="tab(event, 'Inquiries')">Inquiries</a></li>
+			<li class="buttongroup"><a class="menubutton" href="#About_Me" onclick="tab(event, 'About_Me')">About Me</a></li>
 		</ul>
 
 		<div style="margin-left:130px">
   
 
-			<div id="Current Projects" class="w3-container city" style="display:none">
-				<p> Project Name></p>
-				<h3> short Description</h3>
+			<div id="Current_Projects" class="info" style="display:none">
+				<p>Current Project Name</p>
+				<h3>Short Description</h3>
 			</div>
 
-			<div id="Applied Project" class="w3-container city" style="display:none">
-				
+			<div id="Applied_Projects" class="info" style="display:none">
+				<p>Applied Project Name</p>
+				<h3>Short Description</h3>				
 			</div>
 
-			<div id="Completed Projects" class="w3-container city" style="display:none">
-
+			<div id="Completed_Projects" class="info" style="display:none">
+				<p>Completed Project Name</p>
+				<h3>Short Description</h3>
 			</div>
 
-			<div id="Inquiries" class="w3-container city" style="display:none">
-
+			<div id="Inquiries" class="info" style="display:none">
+				<p>Inquiries</p>
+				<h3>Short Description</h3>
 			</div>
-			<div id="About Me" class="w3-container city" style="display:none">
-
+			<div id="About_Me" class="info" style="display:none">
+				<p>About Me</p>
+				<h3>Short Description</h3>
 			</div>
 
 		</div>	
 	</article>
 </section>
+
+<script>
+function tab(event, tabName) {
+  var i, info, buttongroup;
+  info = document.getElementsByClassName("info");
+  for (i = 0; i < info.length; i++) {
+    info[i].style.display = "none";
+  }
+  buttongroup = document.getElementsByClassName("buttongroup");
+  for (i = 0; i < buttongroup.length; i++) {
+    buttongroup[i].className = buttongroup[i].className.replace(" active", "");
+  }
+  document.getElementById(tabName).style.display = "block";
+  event.currentTarget.className += " active";
+}
+</script>
 </body>
-</html>			
+</html>
