@@ -106,5 +106,17 @@ def editProfile():
     return render_template("editProfile.html")
 
 
+@app.route("/forgotPassword")
+@login_required
+def forgotPassword():
+    return render_template("forgotPassword.html")
+
+
+@app.route("/resetPassword")
+@login_required
+def resetPassword():
+    return render_template("resetPassword.html")
+
+
 if __name__ == '__main__':
     app.run(debug=True)

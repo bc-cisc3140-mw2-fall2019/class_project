@@ -11,7 +11,12 @@
 	<nav>
 		<img src ="../../bulldog.png" alt="brooklyn college icon" height=50% width=100%>
 		<br />
-		<p class="username"> username </p>
+		<p class="username">
+			{% if current_user.is_authenticated %}
+			{{ current_user.username }}
+			{% else %}
+			{% endif %}
+		</p>
 		<br />
 		<button class="edit"> SAVE </button>
 	</nav>
