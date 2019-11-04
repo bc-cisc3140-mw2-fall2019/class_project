@@ -138,10 +138,10 @@ def account():
     return render_template("account.html")
 
 
-@app.route("/projects")
+@app.route("/profile")
 @login_required
-def projects():
-    return render_template("projects.html")
+def profile():
+    return render_template("profile.html")
 
 
 @app.route("/editProfile")
