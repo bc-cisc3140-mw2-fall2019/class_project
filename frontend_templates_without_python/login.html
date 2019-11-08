@@ -1,0 +1,104 @@
+<!-- IMPORTANT NOTE: The back-end team should first create a copy of this HTML file, implement python code on that
+file, and place it onto apps/templates folder. Do NOT implement anything on the original file within the 
+front-end folder, as the front-end team are still working on this. (11/07/2019) -->
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width = device-width, initial-scale=1">
+	<title>Login</title>
+	<link href="static/css/login_style.css" rel="stylesheet" style="text/css">
+</head>
+<body>
+	<div class="login_name"><h1>Login</h1></div> <br>
+	<div class="login_format">
+		<div class="label_format">
+			<label for="user" class="user_label"><b>Username/Email</b></label>
+			<input id="user" type="email" placeholder="Type Your Username/Email Here" onfocusout="validUser()" required>
+			<div id = "userError"></div>
+		</div>
+		<div class="label_format">
+			<label for="password" class="password_label"><b>Password</b></label>
+			<input id="password" type="password" placeholder="Type Your Password Here" onfocusout="validPass();" required>
+			<div id = "passError"></div>
+		</div>
+		<div style="text-align: center;"> <input type="submit" value="Login!" id="submit"> </div>
+		<div style="text-align: center;"> <a href="">Forgot Password?</a> </div>
+		<div style="text-align: center;"> <a href="">No account? Sign Up!</a> </div> <br>
+	</div>
+	
+<script>
+function validUser() {
+    var un = document.getElementById('user').value;
+    var check = /^[0-9a-zA-Z_ ]+$/;
+    if (un.match(check)) {
+        document.getElementById('user').style.borderColor = "black";
+        document.getElementById('userError').innerHTML = "";
+        document.getElementById('userError').style.display = none;
+    }
+    else if (un.length == 0) {
+        document.getElementById('user').style.borderColor = "red";
+        document.getElementById('userError').innerHTML = "Please type in your username.";
+        document.getElementById('userError').style.visibility = "visible";
+    }
+    else {
+        document.getElementById('user').style.borderColor = "red";
+        document.getElementById('userError').innerHTML = "Username can only contain letters, numbers, and/or underscores ( _ ).";
+        document.getElementById('userError').style.visibility = "visible";
+    }
+}
+
+function validEmail() {
+    var mail = document.getElementById('email').value;
+    var check = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if (mail.match(check)) {
+        document.getElementById('email').style.borderColor = "black";
+        document.getElementById('emailError').innerHTML = "";
+        document.getElementById('emailError').style.display = none;
+    }
+    else if (mail.length == 0) {
+        document.getElementById('email').style.borderColor = "red";
+        document.getElementById('emailError').innerHTML = "Please type in your email.";
+        document.getElementById('emailError').style.visibility = "visible";
+    }
+    else {
+        document.getElementById('email').style.borderColor = "red";
+        document.getElementById('emailError').innerHTML = "Incorrect email format.";
+        document.getElementById('emailError').style.visibility = "visible";
+    }
+}
+
+function validPass() {
+    var pass = document.getElementById('password').value;
+    var check = /^[0-9a-zA-Z!@#$%^&*()]+$/;
+    if (pass.length >= 8 && pass.match(check)) {
+        document.getElementById('password').style.borderColor = "black";
+        document.getElementById('passError').innerHTML = "";
+        document.getElementById('passError').style.display = none;
+    }
+    else if (pass.length == 0) {
+        document.getElementById('password').style.borderColor = "red";
+        document.getElementById('passError').innerHTML = "Please type in your password.";
+        document.getElementById('passError').style.visibility = "visible";
+    }
+    else if (pass.length < 8 && !pass.match(check)) {
+        document.getElementById('password').style.borderColor = "red";
+        document.getElementById('passError').innerHTML = "Password must contain at least 8 characters and can only have these symbols: !@#$%^&*( )";
+        document.getElementById('passError').style.visibility = "visible";
+    }
+    else if (pass.length < 8) {
+        document.getElementById('password').style.borderColor = "red";
+        document.getElementById('passError').innerHTML = "Password must contain at least 8 characters.";
+        document.getElementById('passError').style.visibility = "visible";
+    }
+    else {
+        document.getElementById('password').style.borderColor = "red";
+        document.getElementById('passError').innerHTML = "Password can only have these symbols: !@#$%^&*( )";
+        document.getElementById('passError').style.visibility = "visible";
+    }
+}
+</script>
+</body>
+</html>

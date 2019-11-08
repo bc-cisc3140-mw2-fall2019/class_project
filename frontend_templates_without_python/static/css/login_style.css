@@ -1,0 +1,73 @@
+.login_name {
+	border: 3px solid black;
+	width: 50%;
+	font-size: 16px;
+	background-color: #ffff00;
+}
+
+.login_format {
+	border: 3px solid black;
+	background-color: #d3d3d3;
+}
+
+.label_format {
+	margin-top: 50px;
+	margin-left: 80px;
+}
+
+.user_label {
+	padding: 10px;
+}
+
+.password_label {
+	padding-left: 65px;
+	padding-right: 65px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+body {
+	/*background-color: #d3d3d3;*/
+}
+h1 {
+	margin-left: 80px;
+}
+
+label {
+	border: 3px solid black;
+	font-size: 36px;
+	background-color: #ffff00;
+}
+
+#user, #password {
+	font-size: 36px;
+	padding: 10px;
+	width: 68%;
+	border: 1px solid black;
+}
+
+#submit {
+	font-size: 36px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	background-color: 
+}
+
+#userError, #passError {
+	color: #ff0000;
+	text-align: center;
+	font-size: 36px;
+}
+
+a {
+	font-size: 36px;
+}
+
+/*h2 {
+	margin-left: 80px;
+	border: 3px solid black;
+	width: 320px;
+	text-align: center;
+	font-size: 36px;
+	background-color: #ffff00;
+}*/
