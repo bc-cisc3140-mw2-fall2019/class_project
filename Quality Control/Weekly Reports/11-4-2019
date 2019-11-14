@@ -1,0 +1,24 @@
+Quality Control Team Report
+11-4-2019
+	
+Group Members:
+Hareem Bokhari
+Cuishan Chen
+Menghong Chen
+Romer Chia
+Katie Solokhina
+FuYuan Yan
+
+	
+What has your team accomplished in the past week? 
+We tested the progress of the website. So far we have the basics of the home – just a plain page with a header link area, 
+where we can click on home, login or register. Each page is redirected to the correct page. On the login page we are not able 
+to login yet since it is not connected to a database, however it does tell us when our password does not reach the correct 
+character limit. On the register page, although it does not allow us to register yet, it tells us if our email is in an incorrect 
+format, or if our passwords don’t match or if our password is less than 8 characters long. When we try to press register, it just 
+refreshes the page but keeps our first and last name, our email and our user name. If we try to register with an empty field, it 
+lets us know and prevents us from continuing. 
+
+Will scheduling be affected? Are you waiting on another team for any features to finish? 
+We are waiting for other teams to let us know what work they have completed and what we can start testing. 
+
