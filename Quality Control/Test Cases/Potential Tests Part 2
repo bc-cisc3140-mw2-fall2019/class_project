@@ -1,0 +1,23 @@
+Product tests Part 2
+
+Edit profile page 
+- when we click save it should save the updated information for name, occupation, bio, profile picture and username.
+- if the new user name is already taken, it should have an error and tells the user once they try to click save, and have their username still as their previous username.
+
+Edit project page 
+- when we click save it should save the updated information for project name, maximum number of members needed, project description
+
+Modified general project page
+- same as the general project tests, but now it includes a post new project button, which should take the user to a page where they can post a new project.
+
+Modified specific project page 
+- same as the specific project tests, but now it includes a modify and delete button
+- these buttons should appear only for the user that posted this project
+- modify button should take the user to the modify project page
+- delete button opens a pop up asking user to confirm deletion (Y/N) 
+	- if no, the pop up closes
+	- if yes, the project should be removed and returns back to the general project page
+
+New project page
+- allows you to edit project name, maximum # of members needed (if not applicable allows infinite applications, else if there is a number, the application for this project should close once that number is reached) and the product description
+- when we click post, it should post the new project to the project page so that all users of the site can view the project. 

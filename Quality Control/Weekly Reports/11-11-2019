@@ -1,0 +1,24 @@
+Quality Control Team Report
+11-11-2019
+
+Group Members:
+Hareem Bokhari
+Cuishan Chen
+Menghong Chen
+Romer Chia
+Katie Solokhina
+FuYuan Yan
+
+	
+What has your team accomplished in the past week? 
+We tested the progress of the website. The frontend team has made it clear for the backend team that they are still working on 
+their templates and that backend shouldn’t add code to it unless frontend is finished. They uploaded the login page, reset password 
+page and forgot password page. We tested out whether it does the basics that a frontend page should do. The forgot password page 
+notifies us when the password is invalid and when we click confirm, nothing happens. The login page nothing happens when we click 
+login, when we click register (because we don’t have an account) or when we click login with valid user and pass. When we click 
+login with an invalid username or password (empty fields) or when we click login with a password that is less than 8 characters, 
+it notifies us. The reset password page notifies us when we click confirm with a password that is less than 8 characters. When we 
+click confirm with a valid password, nothing happens (since backend & database isn't connected). 
+
+Will scheduling be affected? Are you waiting on another team for any features to finish? 
+We are waiting for other teams to let us know what work they have completed and what we can start testing. 
