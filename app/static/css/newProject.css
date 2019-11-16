@@ -1,0 +1,85 @@
+.newProject_head {
+	border: 3px solid black;
+	width: 50%;
+	font-size: 16px;
+	background-color: #ffff00;
+}
+
+.newProject_format {
+	border: 3px solid black;
+	background-color: #d3d3d3;
+}
+
+.label_format {
+	margin-top: 50px;
+	margin-left: 80px;
+}
+
+.name_label {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 67px;
+	padding-right: 67px;
+}
+
+.num_label {
+	padding: 10px;
+}
+
+.desc_label {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 23px;
+	padding-right: 23px;
+}
+
+.pextend {
+	width: 351px;
+}
+	
+
+h1 {
+	margin-left: 80px;
+}
+
+label {
+	border: 3px solid black;
+	font-size: 36px;
+	background-color: #ffff00;
+}
+
+#project_name {
+	font-size: 36px;
+	padding: 10px;
+	width: 68%;
+	border: 1px solid black;
+}
+
+#num {
+	font-size: 36px;
+	padding: 10px;
+	width: 5%;
+	border: 1px solid black;
+}
+
+textarea{
+	font-size: 36px;
+	width: 70%;
+}
+
+#submit {
+	font-size: 36px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	background-color: 
+}
+
+#numError {
+	color: #ff0000;
+	text-align: center;
+	font-size: 36px;
+}
+
+a {
+	font-size: 36px;
+}

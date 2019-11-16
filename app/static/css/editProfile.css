@@ -31,11 +31,40 @@ article{
 	width: 70%;
 	height: 1000px;
 	padding: 0;
-	background-color: #333333;
+	background-color: #80ceeb;
+	
 }
+input, textarea{
+	font-size: 30px;
+	width: 100%;
+}
+
 
 section:after{
 	content: "";
 	display: table;
 	clear: both;
+}
+
+.head_name {
+	border: 3px solid black;
+	width: 50%;
+	font-size: 16px;
+	background-color: #ffff00;
+}
+
+h1 {
+	text-align: center;
+	font-size: 36px;
+}
+
+.label {
+	border: 3px solid black;
+	font-size: 36px;
+	background-color: #ffff00;
+	text-align: center;
+}
+
+.extend{
+	width: 100%;
 }
