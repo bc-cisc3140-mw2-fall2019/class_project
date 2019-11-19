@@ -15,6 +15,7 @@ This is the class project for Fall 2019.
 - `pip install flask-bcrypt` (hash passwords)
 - `pip install flask-login` (login manager)
 - `pip install flask-mail` (email)
+- Further requirements are listed in `./app/README.md`
 
 ## Run
 
