@@ -12,16 +12,31 @@ from flask_mail import Mail, Message
 app = Flask(__name__, template_folder="templates")
 
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://user:password@127.0.0.1:3306/dbName'#setup a connection mysql://username:password@localhost/database https://flask-sqlalchemy.palletsprojects.com/en/2.x/config/#connection-uri-format not sure why "+pymysql" is needed but without it, it didnt let me connect. cant find where i found the fix
-app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+mysqlconnector://{username}:{password}@{hostname}/{databasename}".format(
-    username="user",
-    password="password",
-    hostname="127.0.0.1:3306",
-    databasename="dbName",
-)
+# app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+mysqlconnector://{username}:{password}@{hostname}/{databasename}".format(
+#     username="user",
+#     password="password",
+#     hostname="127.0.0.1:3306",
+#     databasename="dbName",
+# )
+
+# Note: in order to not store passwords in the file, you must set up environment variables for:
+# 1) database URI 
+# 2) secret key
+# 3) an actual email username (in this case it's using gmail)
+# 4) that email username's password
+# 
+# TO SET UP AN ENVIRONMENT VARIABLE: https://www.youtube.com/watch?v=IolxqkL7cD8
+
+# Use this format for DATABASE_URI environment variable: 'mysql+pymysql://user:password@127.0.0.1:3306/dbName'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('C_DATABASE_URI')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False #removes warnings 
+
 # For example, set environment variable to: 24293eea8e681f56845df519bac0a473 Link to set up EV: https://www.youtube.com/watch?v=IolxqkL7cD8
 app.config['SECRET_KEY'] = 'random key blah blah' # random key could be anything you set it to (reccommended to random generate key but for us its okay to put whatever) i.e app.config['SECRET_KEY'] = 'put whatever key you want here'
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0 # Flask didn't see the updates in JS and CSS files, that because by default, Flask has as max-age value 12 hours. You can set it to 0 to resolve the problem
+# For example, set the following environment variable to: 24293eea8e681f56845df519bac0a473
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
+
 db = SQLAlchemy(app) #set db var
 bcrypt = Bcrypt(app) #set encrypt variable
 login_manager = LoginManager(app)
@@ -30,17 +45,24 @@ login_manager.login_view = 'login'
 app.config['MAIL_SERVER'] = 'smtp.googlemail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
+
 # The following two must be set as environment variables
 app.config['MAIL_USERNAME'] = os.environ.get('EMAIL_USER')
 app.config['MAIL_PASSWORD'] = os.environ.get('EMAIL_PASS')
 mail = Mail(app)
 
 
+# This method handles a user being logged in. Finds the user associated with the given ID and logs the individual in.
 @login_manager.user_loader
 def load_user(user_id):
     return registerUser.query.get(int(user_id))
 
 
+# An instance of the registerUser has 7 fields:
+# the database table name used (for local db)
+# ID: A unique number associated with each user
+# First name and last name
+# A unique email (valid), username, and password
 class registerUser(db.Model, UserMixin): #create our database https://www.youtube.com/watch?v=cYWiDiIUxQc different video
     __tablename__ = 'user_login' # Name of our database table
     id = db.Column(db.Integer, primary_key = True, autoincrement = True) 
@@ -66,6 +88,10 @@ class registerUser(db.Model, UserMixin): #create our database https://www.youtub
         return registerUser.query.get(user_id)
 
 
+# 3 fields for password reset, used for sending a reset email link
+# email field requires valid data
+# confirmEmail field must be equal to email
+# submit is a field for submission
 class RequestResetForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
     confirmEmail = StringField('ConfirmEmail', validators=[DataRequired(), Email(), EqualTo('email')])
@@ -93,6 +119,9 @@ def register():
     if request.method == 'GET':
         return render_template('register.html',form=form)
     #-----------------------
+
+    # If the form is valid, create a hashed + salted password and store all the user information in the database.
+    # The data includes: first name, last name, email, username, and the hashed+salted password.
     if form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
         
@@ -112,11 +141,15 @@ def login():
     if current_user.is_authenticated:
         return redirect(url_for('home'))
 
+    # Create instance of FormLogin
     form = FormLogin()
 
+    # If the form is valid, find the user using input data. 
     if form.validate_on_submit():
         user = registerUser.query.filter_by(username=form.user.data).first()
     
+        # If the password matches the password associated with that user in the database, login the user.
+        # Otherwise, return and prompt 'unsuccessful login.'
         if (user and bcrypt.check_password_hash(user.password, form.password.data)):
             login_user(user, remember=form.remember.data)
             next_page = request.args.get('next')
@@ -161,6 +194,8 @@ def sendResetEmail(user):
     mail.send(msg)
 
 
+# User must not be logged in to access this route. 
+# Takes input for email, retrieves the user ID with that email from the database, and sends an email.
 @app.route("/forgotPassword", methods=['GET', 'POST'])
 def forgotPassword():
     if current_user.is_authenticated:
@@ -168,6 +203,7 @@ def forgotPassword():
 
     form = RequestResetForm()
 
+    # If valid, first occurence of user ID with that email.
     if form.validate_on_submit():
         user = registerUser.query.filter_by(email=form.email.data).first()
         sendResetEmail(user)
@@ -185,12 +221,16 @@ def resetPassword(token):
 
     user = registerUser.verifyToken(token)
     
+    # If the token doesn't exist or expired, return and take no action. Otherwise, continue on.
     if user is None:
         flash('That is an invalid or expired token', 'warning')
         return redirect(url_for('forgotPassword'))
     
+    # Create instance of ResetPasswordForm
     form = ResetPasswordForm()
     
+    # If the instance is valid, create a hashed+salted password using input and set that as the user's new password
+    # Save new changes to database
     if form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
         user.password = hashed_password
