@@ -19,9 +19,6 @@ form {
 	
 }
 
-.formLabel {
-	margin-top: 4.5px;
-}
 
 #fnameError, #lnameError, #userError, #emailError, #passError, #confirmError {
 	color: #ff0000;
