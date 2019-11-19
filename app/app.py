@@ -20,8 +20,8 @@ app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+mysqlconnector://{username}:{pass
 )
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False #removes warnings 
 # For example, set environment variable to: 24293eea8e681f56845df519bac0a473 Link to set up EV: https://www.youtube.com/watch?v=IolxqkL7cD8
-app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
-
+app.config['SECRET_KEY'] = 'random key blah blah' # random key could be anything you set it to (reccommended to random generate key but for us its okay to put whatever) i.e app.config['SECRET_KEY'] = 'put whatever key you want here'
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0 # Flask didn't see the updates in JS and CSS files, that because by default, Flask has as max-age value 12 hours. You can set it to 0 to resolve the problem
 db = SQLAlchemy(app) #set db var
 bcrypt = Bcrypt(app) #set encrypt variable
 login_manager = LoginManager(app)

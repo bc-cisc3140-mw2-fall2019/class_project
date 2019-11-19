@@ -1,6 +1,42 @@
 {% extends "layout.html" %}
+{% block head %}
+    <link rel="stylesheet"type="text/css" href="{{ url_for('static', filename='css/register.css') }}">
+{% endblock %}
 {% block content %}
-    <form name="registerForm" method="POST" action="">
+<div class="login-page">
+    <div class="form">
+      <form class="register-form"  method="POST" action="">
+        <div class="form-header">
+        <h1>Register</h1>
+        </div>
+        <label for="first name">First Name</label>
+        <span onfocusout="validFName()" placeholder=" first name" required> {{ form.fname(placeholder="first name") }} </span>
+        <label for="last name">Last Name</label>
+        <span onfocusout="validLName()" placeholder=" last name" required> {{ form.lname(placeholder = "last name") }} </span>
+        <label for="username">Username</label>
+        <span onfocusout="validUser()" placeholder=" first name" required> {{ form.user(placeholder="username") }} </span>
+        <label for="username">E-Mail</label>
+        <span onfocusout="validEmail()" placeholder=" last name" required> {{ form.email(placeholder = "E-Mail") }} </span>
+        <label for="username">Password</label>
+        <span onfocusout="validPass()" placeholder=" last name" required> {{ form.password(placeholder = "Password") }} </span>
+        <label for="username">Confirm Password</label>
+        <span onfocusout="validConfirmPass()" placeholder=" last name" required> {{ form.confirmPassword(placeholder = "confirm password") }} </span>
+        <button>create</button>
+        <p class="message">Already registered? <a href="#">Sign In</a></p>
+      </form>
+      <form class="login-form">
+        <input type="text" placeholder="username"/>
+        <input type="password" placeholder="password"/>
+        <button>login</button>
+        <p class="message">Not registered? <a href="#">Create an account</a></p>
+      </form>
+    </div>
+  </div>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/register.js') }}"></script>
+{% endblock scripts %}
+<!--<form name="registerForm" method="POST" action=""> old form
         {{ form.hidden_tag() }}
         <fieldset>
             <legend>Register</legend>
@@ -39,8 +75,4 @@
         <div class="formLabel">
             {{ form.submit() }}
         </div>
-    </form>
-    <div>
-        Have an account? <a href="{{ url_for('login') }}">Login.</a>
-    </div>
-{% endblock %}
+    </form>-->

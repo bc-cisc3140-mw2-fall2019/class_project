@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+ 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -13,6 +14,8 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"><!--this will import bootstrap to our html pages k-->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+    {% block head %}
+    {% endblock %}
 </head>
 
 <body>
@@ -77,6 +80,8 @@
   </nav>
   {% block content %}{% endblock %}
 </body>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-
+{% block scripts %}
+{% endblock scripts %}
 </html>
