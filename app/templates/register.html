@@ -22,13 +22,13 @@
         <label for="username">Confirm Password</label>
         <span onfocusout="validConfirmPass()" placeholder=" last name" required> {{ form.confirmPassword(placeholder = "confirm password") }} </span>
          {{ form.submit(class='formLabel') }}
-        <p class="message">Already registered? <a href="#">Sign In</a></p>
+        <p class="message">Already registered? <a  class="formAnchor">Sign In</a></p>
       </form>
       <form class="login-form">
         <input type="text" placeholder="username"/>
         <input type="password" placeholder="password"/>
         <button class="formLabel">login</button>
-        <p class="message">Not registered? <a href="#">Create an account</a></p>
+        <p class="message">Not registered? <a class="formAnchor">Create an account</a></p>
         
       </form>
     </div>
