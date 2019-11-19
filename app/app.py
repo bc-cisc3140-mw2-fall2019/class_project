@@ -11,13 +11,13 @@ from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationE
 from flask_mail import Mail, Message
 app = Flask(__name__, template_folder="templates")
 
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://user:password@127.0.0.1:3306/dbName'#setup a connection mysql://username:password@localhost/database https://flask-sqlalchemy.palletsprojects.com/en/2.x/config/#connection-uri-format not sure why "+pymysql" is needed but without it, it didnt let me connect. cant find where i found the fix
-# app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+mysqlconnector://{username}:{password}@{hostname}/{databasename}".format(
-#     username="user",
-#     password="password",
-#     hostname="127.0.0.1:3306",
-#     databasename="dbName",
-# )
+ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://user:password@127.0.0.1:3306/dbName'#setup a connection mysql://username:password@localhost/database https://flask-sqlalchemy.palletsprojects.com/en/2.x/config/#connection-uri-format not sure why "+pymysql" is needed but without it, it didnt let me connect. cant find where i found the fix
+ app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+mysqlconnector://{username}:{password}@{hostname}/{databasename}".format(
+     username="user",
+     password="password",
+     hostname="127.0.0.1:3306",
+    databasename="dbName",
+)
 
 # Note: in order to not store passwords in the file, you must set up environment variables for:
 # 1) database URI 
@@ -32,10 +32,10 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('C_DATABASE_URI')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False #removes warnings 
 
 # For example, set environment variable to: 24293eea8e681f56845df519bac0a473 Link to set up EV: https://www.youtube.com/watch?v=IolxqkL7cD8
-app.config['SECRET_KEY'] = 'random key blah blah' # random key could be anything you set it to (reccommended to random generate key but for us its okay to put whatever) i.e app.config['SECRET_KEY'] = 'put whatever key you want here'
+app.config['SECRET_KEY'] = 'any secret string'# random key could be anything you set it to (reccommended to random generate key but for us its okay to put whatever) i.e app.config['SECRET_KEY'] = 'put whatever key you want here'
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0 # Flask didn't see the updates in JS and CSS files, that because by default, Flask has as max-age value 12 hours. You can set it to 0 to resolve the problem
 # For example, set the following environment variable to: 24293eea8e681f56845df519bac0a473
-app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
+
 
 db = SQLAlchemy(app) #set db var
 bcrypt = Bcrypt(app) #set encrypt variable
