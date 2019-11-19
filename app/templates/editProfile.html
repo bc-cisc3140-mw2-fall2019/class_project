@@ -1,0 +1,48 @@
+<!-- Python code is temporarily disabled until a route is implemented. -->
+
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/editProfile.css') }}"> -->
+<link rel="stylesheet" type="text/css" href="../static/css/editProfile.css">
+</head>
+
+<body>
+<section>
+	<nav>
+		<img src ="../../bulldog.png" alt="brooklyn college icon" height=50% width=100%>
+		<br />
+<!--		<p class="username">
+			{% if current_user.is_authenticated %}
+			{{ current_user.username }}
+			{% else %}
+			{% endif %}
+		</p> -->
+		<br />
+		<button class="edit"> SAVE </button>
+	</nav>
+	
+	<article>
+		<div class="head_name"><h1>Edit Profile</h1></div> <br>
+		<table>
+			<tr>
+				<td class="label">Name:</td>
+				<td class="extend"><input type = "text" name = "fname" ></td>
+			</tr>
+			<tr>
+				<td class="label">Occupation:</td>
+				<td class="extend"><input type = "text" name = "Occupation"></td>
+			</tr>
+			<tr>
+				<td class="label">Biography:</td>
+				<td class="extend"><textarea type = "text" name = "bio" rows="5"></textarea></td>
+			</tr>
+		</table>
+		
+	
+	</article>
+</section>
+</body>
+</html>			

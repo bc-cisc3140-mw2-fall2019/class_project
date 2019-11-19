@@ -1,0 +1,70 @@
+nav{
+	float: left;
+	width: 30%;
+	height: 1000px;
+	background: #f3f3f3;
+	padding: 0;
+}
+
+p.username{
+	border: solid;
+	text-align: center;
+	margin: 10%;
+	width: 59%;
+	padding: 10%;
+	border-width: 4px;
+	border-color: #ffffff;
+}
+
+button.edit{
+	height: 10%;
+	width: 80%;
+	margin: 10%;
+	padding：10%;
+	border: solid;
+	border-width: 4px;
+	border-color: #ffffff;
+}
+
+article{
+	float:left;
+	width: 70%;
+	height: 1000px;
+	padding: 0;
+	background-color: #80ceeb;
+	
+}
+input, textarea{
+	font-size: 30px;
+	width: 100%;
+}
+
+
+section:after{
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.head_name {
+	border: 3px solid black;
+	width: 50%;
+	font-size: 16px;
+	background-color: #ffff00;
+}
+
+h1 {
+	text-align: center;
+	font-size: 36px;
+}
+
+.label {
+	border: 3px solid black;
+	font-size: 36px;
+	background-color: #ffff00;
+	text-align: center;
+}
+
+.extend{
+	width: 100%;
+}

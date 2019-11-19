@@ -1,0 +1,181 @@
+<!-- Python code is temporarily disabled until a route is implemented. -->
+
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../static/css/profile.css">
+
+</head>
+
+<body>
+<section>
+	<nav>
+		<img src ="../../bulldog.png" alt="brooklyn college icon" height=50% width=100%>
+		<br />
+<!--		<p class="username"> 
+			{% if current_user.is_authenticated %}
+			{{ current_user.username }}
+			{% else %}
+			{% endif %}
+		</p> -->
+		<p class="username"> username </p>
+		<br />
+		<button class="edit"> EDIT PROFILE</button>
+		<!-- <button class="edit"><a class="nav-link" href="{{ url_for('editProfile') }}">EDIT PROFILE</a></button> -->
+	</nav>
+	
+	<article>
+		<ul>
+			<li class="buttongroup"><a class="menubutton" href="#Current_Projects" onclick="tab(event, 'Current_Projects')">Current Projects</a></li>
+			<li class="buttongroup"><a class="menubutton" href="#Applied_Projects" onclick="tab(event, 'Applied_Projects')">Applied Projects</a></li>
+			<li class="buttongroup"><a class="menubutton" href="#Completed_Projects" onclick="tab(event, 'Completed_Projects')">Completed Projects</a></li>
+			<li class="buttongroup"><a class="menubutton" href="#Inquiries" onclick="tab(event, 'Inquiries')">Inquiries</a></li>
+			<li class="buttongroup"><a class="menubutton" href="#About_Me" onclick="tab(event, 'About_Me')">About Me</a></li>
+		</ul>
+
+		<div>
+  
+
+			<div id="Current_Projects" class="info" style="display:none">
+					<div class = "project">
+						<div class = "name_place">
+							<a class = "project_name" href = "#project_name1">Current Project #1 Name Here</a>
+						</div>
+						<div class = "description_place">
+							<p>Description of Current Project #1 Here</p>
+						</div>
+					</div>
+	
+					<div class = "project">
+						<div class = "name_place">
+							<a class = "project_name" href = "#project_name2">Current Project #2 Name Here</a>
+						</div>
+						<div class = "description_place">
+							<p>Description of Current Project #2 Here</p>
+						</div>
+					</div>
+	
+					<div class = "project">
+						<div class = "name_place">
+							<a class = "project_name" href = "#project_name3">Current Project #3 Name Here</a>
+						</div>
+						<div class = "description_place">
+							<p>Description of Current Project #3 Here</p>
+						</div>
+					</div>
+	
+			</div>
+
+			<div id="Applied_Projects" class="info" style="display:none">
+					<div class = "project">
+						<div class = "name_place">
+							<a class = "project_name" href = "#project_name1">Applied Project #1 Name Here</a>
+						</div>
+						<div class = "description_place">
+							<p>Description of Applied Project #1 Here</p>
+						</div>
+					</div>
+	
+					<div class = "project">
+						<div class = "name_place">
+							<a class = "project_name" href = "#project_name2">Applied Project #2 Name Here</a>
+						</div>
+						<div class = "description_place">
+							<p>Description of Applied Project #2 Here</p>
+						</div>
+					</div>
+	
+					<div class = "project">
+						<div class = "name_place">
+							<a class = "project_name" href = "#project_name3">Applied Project #3 Name Here</a>
+						</div>
+						<div class = "description_place">
+							<p>Description of Applied Project #3 Here</p>
+						</div>
+					</div>			
+			</div>
+
+			<div id="Completed_Projects" class="info" style="display:none">
+					<div class = "project">
+						<div class = "name_place">
+							<a class = "project_name" href = "#project_name1">Completed Project #1 Name Here</a>
+						</div>
+						<div class = "description_place">
+							<p>Description of Completed Project #1 Here</p>
+						</div>
+					</div>
+	
+					<div class = "project">
+						<div class = "name_place">
+							<a class = "project_name" href = "#project_name2">Completed Project #2 Name Here</a>
+						</div>
+						<div class = "description_place">
+							<p>Description of Completed Project #2 Here</p>
+						</div>
+					</div>
+	
+					<div class = "project">
+						<div class = "name_place">
+							<a class = "project_name" href = "#project_name3">Completed Project #3 Name Here</a>
+						</div>
+						<div class = "description_place">
+							<p>Description of Completed Project #3 Here</p>
+						</div>
+					</div>
+			</div>
+
+			<div id="Inquiries" class="info" style="display:none">
+				<p>Inquiries</p>
+				<h3>Short Description</h3>
+			</div>
+			<div id="About_Me" class="info" style="display:none">
+					<div class = "project">
+						<div class = "name_place">
+							<span>Name:</span>
+						</div>
+						<div class = "description_place">
+							<p>John Doe</p> <!-- Name must be inserted here. -->
+						</div>
+					</div>
+	
+					<div class = "project">
+						<div class = "name_place">
+							<span>Occupation</span>
+						</div>
+						<div class = "description_place">
+							<p>Web Designer</p> <!-- Occupation must be inserted here. -->
+						</div>
+					</div>
+	
+					<div class = "project">
+						<div class = "name_place">
+							<span>Biography:</span>
+						</div>
+						<div class = "description_place">
+							<p>Description of John Doe's life here.</p> <!-- Insert user's biography here. -->
+						</div>
+					</div>
+			</div>
+
+		</div>	
+	</article>
+</section>
+
+<script>
+function tab(event, tabName) {
+  var i, info, buttongroup;
+  info = document.getElementsByClassName("info");
+  for (i = 0; i < info.length; i++) {
+    info[i].style.display = "none";
+  }
+  buttongroup = document.getElementsByClassName("buttongroup");
+  for (i = 0; i < buttongroup.length; i++) {
+    buttongroup[i].className = buttongroup[i].className.replace(" active", "");
+  }
+  document.getElementById(tabName).style.display = "block";
+  event.currentTarget.className += " active";
+}
+</script>
+</body>
+</html>

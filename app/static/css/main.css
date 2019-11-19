@@ -1,5 +1,5 @@
 body {
-    color: blue;
+      
 }
 
 header {
@@ -16,13 +16,14 @@ h1 {
 }
 
 form {
-	text-align: center;
+	
 }
 
-.formLabel {
-	margin-top: 4.5px;
-}
 
 #fnameError, #lnameError, #userError, #emailError, #passError, #confirmError {
 	color: #ff0000;
+}
+
+#fname, #lname, #user, #email, #password, #confirmPassword {
+	border: 1px solid;
 }

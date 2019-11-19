@@ -1,47 +1,34 @@
-document.addEventListener("DOMContentLoaded", function () {
-    console.log("hello");
-})
+<!-- IMPORTANT NOTE: The back-end team should create a copy of this HTML file, implement python code on that
+file, and place it onto apps/templates folder. (11/18/2019) -->
 
-function validFName() {
-    var fn = document.getElementById('fname').value;
-    var check = /^[a-zA-Z ]+$/;
-    if (fn.match(check)) {
-        document.getElementById('fname').style.borderColor = "black";
-        document.getElementById('fnameError').innerHTML = "";
-        document.getElementById('fnameError').style.display = none;
-    }
-    else if (fn.length == 0) {
-        document.getElementById('fname').style.borderColor = "red";
-        document.getElementById('fnameError').innerHTML = "Please type in your first name.";
-        document.getElementById('fnameError').style.visibility = "visible";
-    }
-    else {
-        document.getElementById('fname').style.borderColor = "red";
-        document.getElementById('fnameError').innerHTML = "First Name can only contain letters.";
-        document.getElementById('fnameError').style.visibility = "visible";
-    }
-}
+<!DOCTYPE html>
 
-function validLName() {
-    var ln = document.getElementById('lname').value;
-    var check = /^[a-zA-Z ]+$/;
-    if (ln.match(check)) {
-        document.getElementById('lname').style.borderColor = "black";
-        document.getElementById('lnameError').innerHTML = "";
-        document.getElementById('lnameError').style.display = none;
-    }
-    else if (ln.length == 0) {
-        document.getElementById('lname').style.borderColor = "red";
-        document.getElementById('lnameError').innerHTML = "Please type in your last name.";
-        document.getElementById('lnameError').style.visibility = "visible";
-    }
-    else {
-        document.getElementById('lname').style.borderColor = "red";
-        document.getElementById('lnameError').innerHTML = "Last Name can only contain letters.";
-        document.getElementById('lnameError').style.visibility = "visible";
-    }
-}
-
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width = device-width, initial-scale=1">
+	<title>Login</title>
+	<link href="static/css/login_style.css" rel="stylesheet" style="text/css">
+</head>
+<body>
+	<div class="head_name"><h1>Login</h1></div> <br>
+	<div class="form_format">
+		<div class="label_format">
+			<label for="user" class="user_label"><b>Username/Email</b></label>
+			<input id="user" type="email" placeholder="Type Your Username/Email Here" onfocusout="validUser()" required>
+			<div id = "userError"></div>
+		</div>
+		<div class="label_format">
+			<label for="password" class="password_label"><b>Password</b></label>
+			<input id="password" type="password" placeholder="Type Your Password Here" onfocusout="validPass();" required>
+			<div id = "passError"></div>
+		</div>
+		<div style="text-align: center;"> <input type="submit" value="Login!" id="submit"> </div>
+		<div style="text-align: center;"> <a href="forgotPassword.html">Forgot Password?</a> </div>
+		<div style="text-align: center;"> <a href="">No account? Sign Up!</a> </div> <br>
+	</div>
+	
+<script>
 function validUser() {
     var un = document.getElementById('user').value;
     var check = /^[0-9a-zA-Z_ ]+$/;
@@ -111,18 +98,6 @@ function validPass() {
         document.getElementById('passError').style.visibility = "visible";
     }
 }
-
-function validConfirmPass() {
-    var confirmPass = document.getElementById('confirmPassword').value;
-    var pass = document.getElementById('password').value;
-    if (confirmPass == pass) {
-        document.getElementById('confirmPassword').style.borderColor = "black";
-        document.getElementById('confirmError').innerHTML = "";
-        document.getElementById('confirmError').style.display = none;
-    }
-    else {
-        document.getElementById('confirmPassword').style.borderColor = "red";
-        document.getElementById('confirmError').innerHTML = "Password do not match.";
-        document.getElementById('confirmError').style.visibility = "visible";
-    }
-}
+</script>
+</body>
+</html>

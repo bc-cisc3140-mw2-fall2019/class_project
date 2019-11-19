@@ -1,0 +1,43 @@
+What has your team accomplished in the past week? 
+
+  app.py
+    - added two routes: forgotPassword and resetPassword (implementation not completed)
+    - added imports (in the future we should modularize the files)
+    - added constants for email password reset, you must set the environment variables on your machine
+    - added two methods for the registerUser class: getToken and verifyToken, for email purposes
+    - added class RequestResetForm, for forgotPassword. Contains method validateEmail
+    - added method for sending an email to user using flask-mail
+    - added functionality to forgotPassword route. First the user must be logged out, then it calls the sendResetEmail method.
+    - added functionality to resetPassword route. First the user must be logged out, then it verifies the token, and resets the password to the database.
+
+  forms.py
+    - added ResetPasswordForm class, containing fields for password, confirm password, and submit.
+
+  login.html
+    - added link to forgot password template
+
+  README.md
+    - added new pip install required
+  
+  editProfile.html
+    - display current logged in user
+  
+Did your team encounter unexpected hurdles?
+
+  Not really.
+
+How will your team work through any hurdle(s)? 
+
+  Need more communication.
+  
+What tools worked, what didn’t? 
+
+  N/A
+
+Will there be any shifts or changes in the features your team will be working on? 
+
+  Same as last week.
+
+Will scheduling be affected? Are you waiting on another team for any features to finish? 
+
+  Same issues as last week.

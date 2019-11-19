@@ -1,0 +1,40 @@
+What has your team accomplished in the past week? 
+
+  app.py
+- add editProfile route
+- must be logged in to view
+
+projects.html
+- remove style and add link to css file
+- current user display
+- link for edit profile
+- link to home page
+
+projects.css
+- moved from html file to static folder
+
+editProfile.html
+- remove style and add link to css file
+
+editProfile.css
+- moved from html file to static folder
+  
+Did your team encounter unexpected hurdles?
+
+  Not really.
+
+How will your team work through any hurdle(s)? 
+
+  Need more communication.
+  
+What tools worked, what didn’t? 
+
+  N/A
+
+Will there be any shifts or changes in the features your team will be working on? 
+
+  Same as last week.
+
+Will scheduling be affected? Are you waiting on another team for any features to finish? 
+
+  Same issues as last week.

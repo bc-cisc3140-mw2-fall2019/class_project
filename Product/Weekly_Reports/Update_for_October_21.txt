@@ -1,0 +1,5 @@
+This week the product team had a few setbacks in terms of coming up with more designs. We pretty much 
+finished all the designs for the product and did most of the modifications. We are having problems deciding what
+else we can possibly implement into the product and what other modifications we can make. For next week, we hope to 
+be able to come up with another change we could make to the product and if not we hope to have another design up
+and passing it over to the front end. 

@@ -1,0 +1,22 @@
+Quality Control Team Report
+10-21-2019
+
+Group Members:
+Hareem Bokhari
+Cuishan Chen
+Menghong Chen
+Romer Chia
+Katie Solokhina
+FuYuan Yan
+
+What has your team accomplished in the past week? 
+Since frontend team has supplied us with the login section we have begun testing, researching how to conduct testcases in python and flask. 
+
+What should be tackled for the upcoming week? 
+We will continue to plan the test cases concerning the designs from the product team. We will finish testing out the front 
+end login section.
+
+Will scheduling be affected? Are you waiting on another team for any features to finish? 
+According to the front end team, the only thing that still needs to be fixed in the register page is the header. So, we will be 
+waiting for the frontend team to fix that and finish other each features so that we can test them and all of the test cases that 
+we planned based on the designs.

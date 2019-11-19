@@ -1,0 +1,28 @@
+What has your team accomplished in the past week? 
+
+  We cleaned up code in various files, moved code to appropriate places, added password 
+  hashing and salting, first and last name columns to be sent to datbase, fix navbar 
+  routing and routing in general, and make it so if a registration is valid add user to database.
+  Login and Logout integration with local database is added through flask library. 
+  (other additions are listed in each commit summary).
+  
+Did your team encounter unexpected hurdles?
+
+  Where to go from here on. Splitting work/what we should do.
+
+How will your team work through any hurdle(s)? 
+
+  We need to speak and work together and speak to other teams to understand the goals that
+  need to be accomplished.
+  
+What tools worked, what didn’t? 
+
+  Flask login and logout works with local database.
+
+Will there be any shifts or changes in the features your team will be working on? 
+
+  Need actual integration with a database for everyone to use.
+
+Will scheduling be affected? Are you waiting on another team for any features to finish? 
+
+  Same issues as last week.
