@@ -1,0 +1,6 @@
+flask==1.1.1
+flask-wtf==0.14.2
+flask-SQLAlchemy==2.4.1
+flask-bcrypt==0.7.1
+flask-mail==0.9.1
+flasl-login==0.4.1
