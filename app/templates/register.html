@@ -1,38 +1,43 @@
 {% extends "layout.html" %}
 {% block head %}
-    <link rel="stylesheet"type="text/css" href="{{ url_for('static', filename='css/register.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/register.css') }}">
 {% endblock %}
 {% block content %}
+
 <div class="login-page">
     <div class="form">
-      <form class="register-form"  method="POST" action="">
-        <div class="form-header">
-        <h1>Register</h1>
-        </div>
-        <label for="first name">First Name</label>
-        <span onfocusout="validFName()" placeholder=" first name" required> {{ form.fname(placeholder="first name") }} </span>
-        <label for="last name">Last Name</label>
-        <span onfocusout="validLName()" placeholder=" last name" required> {{ form.lname(placeholder = "last name") }} </span>
-        <label for="username">Username</label>
-        <span onfocusout="validUser()" placeholder=" first name" required> {{ form.user(placeholder="username") }} </span>
-        <label for="username">E-Mail</label>
-        <span onfocusout="validEmail()" placeholder=" last name" required> {{ form.email(placeholder = "E-Mail") }} </span>
-        <label for="username">Password</label>
-        <span onfocusout="validPass()" placeholder=" last name" required> {{ form.password(placeholder = "Password") }} </span>
-        <label for="username">Confirm Password</label>
-        <span onfocusout="validConfirmPass()" placeholder=" last name" required> {{ form.confirmPassword(placeholder = "confirm password") }} </span>
-         {{ form.submit(class='formLabel') }}
-        <p class="message">Already registered? <a  class="formAnchor">Sign In</a></p>
-      </form>
-      <form class="login-form">
-        <input type="text" placeholder="username"/>
-        <input type="password" placeholder="password"/>
-        <button class="formLabel">login</button>
-        <p class="message">Not registered? <a class="formAnchor">Create an account</a></p>
-        
-      </form>
+
+        <form class="register-form" method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset>
+                <div class="form-header">
+                    <h1>Register</h1>
+                </div>
+                <label for="first name">First Name</label>
+                <span onfocusout="validFName()" placeholder=" first name" required>
+                    {{ form.fname(placeholder="first name") }} </span>
+                <label for="last name">Last Name</label>
+                <span onfocusout="validLName()" placeholder=" last name" required>
+                    {{ form.lname(placeholder = "last name") }} </span>
+                <label for="username">Username</label>
+                <span onfocusout="validUser()" placeholder=" first name" required>
+                    {{ form.user(placeholder="username") }} </span>
+                <label for="username">E-Mail</label>
+                <span onfocusout="validEmail()" placeholder=" last name" required>
+                    {{ form.email(placeholder = "E-Mail") }} </span>
+                <label for="username">Password</label>
+                <span onfocusout="validPass()" placeholder=" last name" required>
+                    {{ form.password(placeholder = "Password") }} </span>
+                <label for="username">Confirm Password</label>
+                <span onfocusout="validConfirmPass()" placeholder=" last name" required>
+                    {{ form.confirmPassword(placeholder = "confirm password") }} </span>
+                {{ form.submit(class='formLabel') }}
+            </fieldset>
+            <p class="message">Already registered? <a class="formAnchor" href="{{ url_for('login') }}">Sign In</a></p>
+        </form>
+
     </div>
-  </div>
+</div>
 {% endblock %}
 {% block scripts %}
 <script src="{{ url_for('static', filename='js/register.js') }}"></script>
