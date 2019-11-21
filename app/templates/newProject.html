@@ -1,18 +1,41 @@
 <!-- IMPORTANT NOTE: The back-end team should first create a copy of this HTML file, implement python code on that
 file, and place it onto apps/templates folder. Do NOT implement anything on the original file within the 
 front-end folder, as the front-end team are still working on this. (11/07/2019) -->
+{% extends "layout.html" %}
 
-<!DOCTYPE html>
+{% block head %}
+<link href="../static/css/newProject.css" rel="stylesheet" style="text/css">
+{% endblock %}
+{% block content %}
 
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width = device-width, initial-scale=1">
-	<title>New Project</title>
-	<link href="../static/css/newProject.css" rel="stylesheet" style="text/css">
-</head>
-<body>
-	<div class="newProject_head"><h1>New Project</h1></div> <br>
+<div class="container">
+	<form id="contact" action="" method="post">
+		<h3>Post New Project</h3>
+		<h4>Fill out form to submit new project and start collaborating</h4>
+		<fieldset>
+			<input placeholder="Title of your post" type="text" tabindex="1" required autofocus>
+		</fieldset>
+		<fieldset>
+			<input placeholder="maximum number of people you want to collaborate" type="email" tabindex="2" required>
+		</fieldset>
+		<fieldset>
+			<input placeholder="Github link to your project or URL to your project" type="url" tabindex="4" required>
+		</fieldset>
+		<fieldset>
+			<textarea placeholder="Describe your project" tabindex="5" required></textarea>
+		</fieldset>
+		<fieldset>
+			<button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+		</fieldset>
+	</form>
+
+
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='./js/validNum.js') }}"></script>
+{% endblock scripts %}
+<!--	<div class="newProject_head"><h1>New Project</h1></div> <br>
 	<div class="newProject_format">
 		<div class="label_format">
 			<label for="project_name" class="name_label"><b>Project Name</b></label>
@@ -32,23 +55,4 @@ front-end folder, as the front-end team are still working on this. (11/07/2019) 
 			</table>
 		</div> <br>
 	</div>
-	<div style="text-align: center;"> <input type="submit" value="Post" id="submit"> </div>
-	
-<script>
-function validNum() {
-    var number = document.getElementById('num').value;
-    var check = /^[0-9]+$/;
-    if (number.match(check) || number.length == 0) {
-        document.getElementById('num').style.borderColor = "black";
-        document.getElementById('numError').innerHTML = "";
-        document.getElementById('numError').style.display = none;
-    }
-    else {
-        document.getElementById('num').style.borderColor = "red";
-        document.getElementById('numError').innerHTML = "Please enter a number. If no requirements, leave it blank.";
-        document.getElementById('numError').style.visibility = "visible";
-    }
-}
-</script>
-</body>
-</html>
+	<div style="text-align: center;"> <input type="submit" value="Post" id="submit"> </div>-->
