@@ -1,6 +1,34 @@
 {% extends "layout.html" %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/register.css') }}">
+{% endblock %}
 {% block content %}
-    <form method="POST" action="">
+
+<div class="login-page">
+    <div class="form">
+
+
+        <form class="login-form"  method="POST" action="">
+            <fieldset>
+                    <div class="form-header">
+                            <h1>Login</h1>
+                        </div>
+                {{ form.user.label() }}
+                <span onfocusout="validUser()" required> {{ form.user(placeholder="username") }} </span>
+                {{ form.password.label() }}
+                <span onfocusout="validPass();" required> {{ form.password(placeholder="password") }} </span>
+                {{ form.submit(class="formLabel") }}
+                <p class="message">Not registered? <a class="formAnchor" href="{{ url_for('register') }}">Create an
+                        account</a></p>
+            </fieldset>
+        </form>
+    </div>
+</div>
+{% endblock content %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/register.js') }}"></script>
+{% endblock scripts %}
+<!-- <form method="POST" action="">
         {{ form.hidden_tag() }}
         <fieldset>
             <legend>Login</legend>
@@ -26,5 +54,4 @@
     </form>
     <div>
         Don't have an account? <a href="{{ url_for('register') }}">Register here.</a>
-    </div>
-{% endblock %}
+    </div>-->
