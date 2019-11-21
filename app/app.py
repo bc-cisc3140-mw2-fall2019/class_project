@@ -178,9 +178,14 @@ def profile():
 
 
 @app.route("/editProfile")
-@login_required
+#@login_required # remove login required to work on the page without logging in
 def editProfile():
     return render_template("editProfile.html")
+
+@app.route("/newProjects")
+def newPRoject():
+    return render_template("newProject.html")
+
 
 
 # Accepts a user and sends an email using flask-mail
