@@ -1,11 +1,46 @@
-nav{
-	float: left;
-	width: 30%;
-	height: 1000px;
-	background: #f3f3f3;
-	padding: 0;
+
+body{
+	background-color:#965353;
+}
+.container{
+	margin-top: 1em;
+	background-color:#FFFFFF;
+	box-shadow:0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+#leftPanel{
+    background-color:#a76868;
+    color:#fff;
+	text-align: center;
+	margin-left: 10px;
+}
+.profile-info-div{
+	margin-top:10px;
+}
+#rightPanel{
+    min-height:415px;
+}
+.profile-pic{
+	width: 50%;
+}
+.bio-description{
+	width: 100%;
+	min-height: 150px;
+	-webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
 }
 
+.form-title{
+	text-transform: uppercase;
+}
+/* Credit to bootsnipp.com for the css for the color graph */
+.colorgraph {
+  height: 5px;
+  border-top: 0;
+  background: #523c3c;
+  border-radius: 5px;
+ 
+/*
 p.username{
 	border: solid;
 	text-align: center;
@@ -20,16 +55,17 @@ button.edit{
 	height: 10%;
 	width: 80%;
 	margin: 10%;
-	/*padding：10%;*/
+
 	border: solid;
 	border-width: 4px;
 	border-color: #ffffff;
 }
 
 article{
-	float:left;
+	margin:auto;
+	margin-top:1em;
 	width: 70%;
-	height: 1000px;
+	
 	padding: 0;
 	background-color: #80ceeb;
 	
@@ -67,4 +103,4 @@ h1 {
 
 .extend{
 	width: 100%;
-}
+}*/
