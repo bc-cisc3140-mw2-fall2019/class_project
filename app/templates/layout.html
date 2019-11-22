@@ -41,6 +41,9 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ url_for('profile') }}">Profile</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('editProfile') }}">Account</a>
+          </li>
         {% else %}
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="{{ url_for('login') }}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
