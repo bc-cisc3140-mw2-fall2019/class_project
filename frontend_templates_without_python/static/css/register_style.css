@@ -1,0 +1,99 @@
+.head_name {
+	border: 3px solid black;
+	width: 50%;
+	font-size: 16px;
+	background-color: #ffff00;
+}
+
+.form_format {
+	border: 3px solid black;
+	background-color: #d3d3d3;
+}
+
+.label_format {
+	margin-top: 50px;
+	margin-left: 80px;
+}
+
+.user_label {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 89px;
+	padding-right: 89px;
+}
+
+.fname_label {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 53px;
+	padding-right: 53px;
+}
+
+.lname_label {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 53px;
+	padding-right: 53px;
+}
+
+.email_label {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 121px;
+	padding-right: 121px;
+}
+
+.password_label {
+	padding-left: 93px;
+	padding-right: 93px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.confirmPassword_label {
+	padding-left: 22.5px;
+	padding-right: 22.5px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+h1 {
+	margin-left: 80px;
+}
+
+label {
+	border: 3px solid black;
+	font-size: 36px;
+	background-color: #ffff00;
+}
+
+#user, #password, #confirmPassword, #email {
+	font-size: 36px;
+	padding: 10px;
+	width: 68%;
+	border: 1px solid black;
+}
+
+#fname, #lname {
+	font-size: 36px;
+	padding: 10px;
+	width: 25%;
+	border: 1px solid black;
+}
+
+#submit {
+	font-size: 36px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	background-color: 
+}
+
+#userError, #passError, #confirmError, #fnameError, #lnameError, #emailError {
+	color: #ff0000;
+	text-align: center;
+	font-size: 36px;
+}
+
+a {
+	font-size: 36px;
+}
