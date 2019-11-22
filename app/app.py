@@ -166,7 +166,7 @@ def logout():
 
 
 @app.route("/account")
-#@login_required #############**IMPORTANT TO UNCOMMENT WHEN DONE TESTING**################
+@login_required #############**IMPORTANT TO UNCOMMENT WHEN DONE TESTING**################
 def account():
     return render_template("account.html")
 
@@ -178,7 +178,7 @@ def profile():
 
 
 @app.route("/editProfile")
-#@login_required ####### ********IMPORTNAT********** TO UNCOMMENT WHEN DONE TESTING remove login required to work on the page without logging in###################################
+@login_required ####### ********IMPORTNAT********** TO UNCOMMENT WHEN DONE TESTING remove login required to work on the page without logging in###################################
 def editProfile():
     return render_template("editProfile.html")
 
