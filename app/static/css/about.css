@@ -1,0 +1,163 @@
+html{
+    scroll-behavior: smooth;
+}
+
+.card-container{
+  border-radius: 10px;
+    /* overflow: hidden; */
+   
+}
+
+
+.card{
+    display: grid;
+    grid-template-columns: 300px;
+    grid-template-rows: 300px 300px 100px;
+    grid-template-areas: "image" "text" "stats";
+
+    font-family: roboto;
+    border-radius: 18px;
+    background: white;
+    box-shadow: 5px 5px 15px black;
+    text-align:center;
+
+    transition: 0.5s ease;
+    cursor: pointer;
+    margin: 1px;
+    justify-content: center;
+}
+.card-product-image{
+    grid-area: image;
+    background: url("../pictures/product.png");
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+
+}
+
+.card-database-image{
+    grid-area: image;
+    background: url("../pictures/database.png");
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+
+}
+
+.card-frontend-image{
+    grid-area: image;
+    background: url("../pictures/frontend.jpg");
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+}
+
+.card-backend-image{
+    grid-area: image;
+    background: url("../pictures/backend.png");
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+}
+
+.card-quality-image{
+    grid-area: image;
+    background: url("../pictures/quality.png");
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+}
+
+
+
+.card-specifications-image{
+    grid-area: image;
+    background: url("../pictures/spec.jpg");
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+
+}
+
+.card-text{
+    grid-area: text;
+    margin: 25px;
+}
+
+.card-text .date{
+    color: rgb(255,7,110);
+    font-size: 13px;
+}
+
+.card-text p{
+    color: grey;
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.card-text h{
+    margin-top: 0px;
+    font-size: 28 px;
+
+}
+
+.card:hover{
+    transform: scale(1.2);
+    z-index: 100;
+    box-shadow: 5px 5px 15px black;
+}
+
+
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 100px;
+  width: 100px;
+  background-size: 100%, 100%;
+  border-radius: 50%;
+  background-image: none;
+}
+
+
+.carousel-control-prev {
+    left: -11%;
+    background-color: #c7b9b9;
+    width: 10%;
+}
+.carousel-control-next {
+    right: -11%;
+    background-color: #c7b9b9;
+    width: 10%;
+}
+.carousel-control-prev-icon:after {
+  content: '<';
+  font-size: 55px;
+  color: white;
+}
+.carousel-control-next-icon:after {
+    content: '>';
+    font-size: 55px;
+    color: white;
+  }
+
+.carousel-inner .carousel-item.active,
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+  display: flex;
+}
+
+.carousel-inner .carousel-item-right.active,
+.carousel-inner .carousel-item-next {
+  transform: translateX(33%);
+}
+
+.carousel-inner .carousel-item-left.active, 
+.carousel-inner .carousel-item-prev {
+  transform: translateX(-33%);
+}
+  
+.carousel-inner .carousel-item-right,
+.carousel-inner .carousel-item-left{ 
+  transform: translateX(0);
+  
+}
