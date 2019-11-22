@@ -178,7 +178,7 @@ def profile():
 
 
 @app.route("/editProfile")
-#@login_required # remove login required to work on the page without logging in
+#@login_required ####### ********IMPORTNAT********** TO UNCOMMENT WHEN DONE TESTING remove login required to work on the page without logging in###################################
 def editProfile():
     return render_template("editProfile.html")
 
