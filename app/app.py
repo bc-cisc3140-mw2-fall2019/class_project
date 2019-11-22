@@ -166,7 +166,7 @@ def logout():
 
 
 @app.route("/account")
-@login_required
+#@login_required #############**IMPORTANT TO UNCOMMENT WHEN DONE TESTING**################
 def account():
     return render_template("account.html")
 
@@ -186,6 +186,9 @@ def editProfile():
 def newPRoject():
     return render_template("newProject.html")
 
+@app.route("/about")
+def aboutPage():
+    return render_template("about.html")
 
 
 # Accepts a user and sends an email using flask-mail
