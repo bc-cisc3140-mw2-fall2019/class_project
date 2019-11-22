@@ -1,0 +1,125 @@
+{% extends "layout.html" %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href="./static/css/about.css" />
+{% endblock %}
+{% block content %}
+
+<div class="container card-container text-center my-3">
+    <h1 class="form-title">Team Contributions</h1>
+    <div class="row mx-auto my-auto">
+        <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">
+            <ul class="carousel-indicators">
+                <li data-target="#recipeCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#recipeCarousel" data-slide-to="1"></li>
+                <li data-target="#recipeCarousel" data-slide-to="2"></li>
+            </ul>
+            <div class="carousel-inner w-100" role="listbox">
+                <div class="carousel-item active">
+                    <div class="card  col-4 img-fluid">
+                        <div class="card-product-image"></div>
+                        <div class="card-text">
+                            <span class="date">
+                                <h2>Product</h2>
+                            </span>
+                            <h5> Shradha Luintel, Amara Auguste, Vivian Tom,Brian Cheung </h5>
+                            <p>Design the app based on market research or user research</p>
+                            <p>Figure out user needs</p>
+                            <p>Decide on features for the end user, what it will look like</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="card  col-4 img-fluid">
+                        <div class="card-database-image"></div>
+                        <div class="card-text">
+                            <span class="date">
+                                <h2>Database</h2>
+                            </span>
+                            <h5>Vadzim Arlou, Kin Lou, Daniel Brown</h5>
+                            <p>Compare possible database implementation solutions Create and edit table(s)</p>
+                            <p>Maintain tables</p>
+                            <p>Curate content for the group</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="card col-4 img-fluid">
+                        <div class="card-frontend-image"></div>
+                        <div class="card-text">
+                            <span class="date">
+                                <h2>Front-end</h2>
+                            </span>
+                            <h5>Huanjie Li, Youstina Samuel,Tom Wang, Jingkan Guo </h5>
+                            <p>Implementing designs by product team</p>
+                            <p>Works with backend team in delivering new features</p>
+                            <p>Work with product to discuss feasibility and prioritization of features</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="card col-4 img-fluid">
+                        <div class="card-backend-image"></div>
+                        <div class="card-text">
+                            <span class="date">
+                                <h2>Back-end</h2>
+                            </span>
+                            <h5> Alexandru Lapsin , Jonathan Colon, Arkadiy Mishchenko,Stanislav Kam, Mathew Davidov
+                            </h5>
+                            <p>Building the data endpoints and transformations for the frontend</p>
+                            <p>Work with specifications team to make sure code is organized</p>
+                            <p>Work with front end and database teams to architect the app</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="card  col-4 img-fluid ">
+                        <div class="card-quality-image"></div>
+                        <div class="card-text">
+                            <span class="date">
+                                <h2>Quality Control</h2>
+                            </span>
+                            <h5>Katie Solokhina, Hareem Bokhari,Cuishan Chen, Menghong Chen, Romer Chia, FuYuan Yan
+                            </h5>
+                            <p>Develop a testing strategy. Could be both manual and automated testing strategies</p>
+                            <p>Work with Product team to convert requirements and design documents to a set of testing
+                                cases and scripts.</p>
+                            <p>Follow up with other teams regularly to test features</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="card col-4 img-fluid ">
+                        <div class="card-specifications-image"></div>
+                        <div class="card-text">
+                            <span class="date">
+                                <h2>Specifications</h2>
+                            </span>
+                            <h5> ChunKit Yip<sup>(Alex)</sup></h5>
+                            <p>Helps shape and define the project parameters, on the structuring of the project as well
+                                as organizing the input and outputs</p>
+                            <p>Work with other teams to help prioritize order of feature development and testing,
+                                possibly helping front and back end teams sync up</p>
+                            <p>Ensures a quality product by providing structure and helps teams align</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#recipeCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#recipeCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/about.js') }}"></script>
+{% endblock scripts %}

@@ -1,5 +1,16 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
-
+body {
+  background: linear-gradient(45deg, rgba(125, 50, 93, 0.28) 0%, rgba(171, 91, 80, 0.48) 100%);
+  color: rgba(0, 0, 0, 0.6);
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  line-height: 1.6em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;    
+}
+a{
+  cursor: pointer;
+}
 .login-page {
   width: 360px;
   padding: 8% 0 0;
@@ -31,6 +42,7 @@ form label {
     color: rgba(0, 0, 0, 0.6);
     font-size: 12px;
     font-weight: bold;
+    
     line-height: 1;
     text-transform: uppercase;
     letter-spacing: .2em;
@@ -46,12 +58,13 @@ form label {
   box-sizing: border-box;
   font-size: 14px;
   border-radius: 4px;
-  border
+
 }
 .form .formLabel {
     font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
+  border-radius: 4px;
   background: #965353;
   width: 100%;
   border: 0;
@@ -74,9 +87,7 @@ form label {
   color: #965353;
   text-decoration: none;
 }
-.form .register-form {
-  display: none;
-}
+
 .container {
   position: relative;
   z-index: 1;
@@ -109,13 +120,4 @@ form label {
 }
 .container .info span .fa {
   color: #EF3B3A;
-}
-body {
-    background: linear-gradient(45deg, rgba(125, 50, 93, 0.28) 0%, rgba(171, 91, 80, 0.48) 100%);
-    color: rgba(0, 0, 0, 0.6);
-    font-family: "Roboto", sans-serif;
-    font-size: 14px;
-    line-height: 1.6em;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;    
 }

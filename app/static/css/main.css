@@ -1,25 +1,28 @@
-body {
-      
+body{
+  background: linear-gradient(45deg, rgba(125, 50, 93, 0.28) 0%, rgba(171, 91, 80, 0.48) 100%);
 }
-
-header {
-    background-color: #add8e6;
-    /*margin: 0 auto;
-    width: 100%;
-    left: 0;
-    top: 0;*/
+ .formLabel {
+    font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  border-radius: 4px;
+  background: #965353;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
 }
-
-h1 {
-	margin: 0;
-	padding: 0;
+.formLabel:hover {
+    color: #FFFFFF;
+  background-color: #583333;
 }
-
-form {
-	
+.form-title{
+    color: #7b2240;
 }
-
-
 #fnameError, #lnameError, #userError, #emailError, #passError, #confirmError {
 	color: #ff0000;
 }
@@ -27,3 +30,31 @@ form {
 #fname, #lname, #user, #email, #password, #confirmPassword {
 	border: 1px solid;
 }
+@media only screen and (min-width:769px) {
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+    .dropdown-submenu {
+      position: relative !important;
+    }
+    .dropdown-submenu>.dropdown-menu {
+      top: 0 !important;
+      left: 100% !important;
+      margin-top: -6px !important;
+      margin-left: -1px !important;
+      border-radius: 0 !important;
+    }
+    .dropdown-submenu:hover>.dropdown-menu {
+      display: block !important;
+    }
+    .dropdown-submenu>a:after {
+      display: block;
+      content: "\f105";
+      font-family: 'FontAwesome';
+      margin-top: -18px;
+      right: 15px;
+      position: absolute;
+      font-weight: 300;
+    }
+  }
+  
