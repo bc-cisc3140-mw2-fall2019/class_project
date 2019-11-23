@@ -87,29 +87,41 @@ div.name_place{
 div.description_place{
 	margin: 10px;
 }
+
 div.inquiry_content{
 	width: 100%; <!-- here to control the size -->
 	height: 200px;
 }
+
 div.inquiry_left{
 	float: left;
 	border: solid;
 	width: 70%;
 	height: 100px;
 }
+
 div.inquiry_right{
 	float: left;
 	border: solid;	
 	width: 20%;
 	height: 100px;
 }
+
 div.inquiry_left_content{
 	margin: 0px;
 	padding: 10px;
 }
+
 button.inquiry_button{	
 	margin: 10px;
 	height: 80px;
 	width: 80px;
 <!-- here can control the button size, if you want (I did not use the percentage to size the button, it may go out of layout if we narrow the window.)-->
+}
+
+.cbutton{
+	width: 50%;
+	font-size: 16px;
+	background-color: #ffff00;
+	border: 1px solid black;
 }
