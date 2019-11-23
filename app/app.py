@@ -1,8 +1,9 @@
 import os
-from flask import Flask, render_template, request, url_for, flash, redirect, request
+from datetime import datetime
+from flask import Flask, render_template, request, url_for, flash, redirect, request, Blueprint
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
-from forms import FormRegister, FormLogin, ResetPasswordForm
+from forms import FormRegister, FormLogin, ResetPasswordForm, PostForm
 from flask_login import LoginManager, UserMixin, login_user, current_user, logout_user, login_required
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 from flask_wtf import FlaskForm
@@ -71,6 +72,7 @@ class registerUser(db.Model, UserMixin): #create our database https://www.youtub
     email = db.Column(db.String(50), unique = True, nullable = False)
     username = db.Column(db.String(15), unique = True, nullable = False) 
     password = db.Column(db.String(30), unique = False, nullable = False)
+    posts = db.relationship('Posts', backref='author', lazy=True)
 
     # Uses secret key to generate a token that lasts for 30 minutes (used for password reset)
     def getToken(self, expires_seconds=1800):
@@ -86,6 +88,23 @@ class registerUser(db.Model, UserMixin): #create our database https://www.youtub
         except:
             return None
         return registerUser.query.get(user_id)
+
+
+# Post class has 5 fields:
+# post_id: unique ID associated with every post
+# title: String for a post title
+# content: String for a post content
+# id: Foreign key for the User table. Every post has a foreign key to its author (ID)
+class Posts(db.Model):
+    __tablename__ = 'posts'
+    post_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    title = db.Column(db.String(100), nullable=False)
+    date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    content = db.Column(db.Text, nullable=False)
+    id = db.Column(db.Integer, db.ForeignKey('user_login.id'), nullable=False)
+
+    # def __repr__(self):
+    #     return f"Post('{self.title}', '{self.date_posted}')"
 
 
 # 3 fields for password reset, used for sending a reset email link
@@ -107,7 +126,9 @@ class RequestResetForm(FlaskForm):
 @app.route('/')
 @app.route('/home')
 def home():
-    return render_template('index.html')
+    # Query every post to the front page
+    posts = Posts.query.all()
+    return render_template('index.html', posts=posts)
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -247,6 +268,61 @@ def resetPassword(token):
         return redirect(url_for('login'))
     
     return render_template('resetPassword.html', title='Reset Password', form=form)
+
+
+# Route for creating a new post.
+@app.route("/post/new", methods=['GET', 'POST'])
+@login_required
+def newPost():
+    # Create an instance of the PostForm class
+    form = PostForm()
+    if form.validate_on_submit():
+        # Create a row in the Post table with the information provided in the form
+        post = Posts(title=form.title.data, content=form.content.data, author=current_user)
+
+        # Add the row to the database, commit the addition, and redirect to home page with the new post
+        db.session.add(post)
+        db.session.commit()
+        return redirect(url_for('home'))
+    return render_template('newPost.html', form=form)
+
+
+# Route for a specific post (not currently functioning for some reason)
+@app.route("/post/<int:post_id>")
+def post(post_id):
+    # Query for the post with the unique ID if it exists
+    post = Posts.query.get_or_404(post_id)
+    return render_template('post.html', title=post.title, post=post)
+
+
+# ----------------------------------------------------------
+#
+# Error handling:
+# 404: If the page doesn't exist
+# 403: If the user has no permission to perform an action
+# 500: Internal error on the server end
+# Errors for handling 403, 404, and 500
+errors = Blueprint('errors', __name__)
+
+
+@errors.app_errorhandler(403)
+def error_403(error):
+    return render_template('errors/403.html'), 403
+
+
+@errors.app_errorhandler(404)
+def error_404(error):
+    return render_template('errors/404.html'), 404
+
+
+@errors.app_errorhandler(500)
+def error_500(error):
+    return render_template('errors/500.html'), 500
+
+
+app.register_blueprint(errors)
+
+# ----------------------------------------------------------
 
 
 if __name__ == '__main__':
