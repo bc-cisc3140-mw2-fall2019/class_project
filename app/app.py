@@ -123,6 +123,30 @@ class RequestResetForm(FlaskForm):
             raise ValidationError('There is no account with that email. You must register first.')
 
 
+# 3 fields for updating an account
+# user field requires valid data (must be unique)
+# email field requires valid data (must be unique)
+# submit is a field for submission
+class UpdateAccForm(FlaskForm):
+    username = StringField('Username', validators=[DataRequired(), Length(min=5, max=15)])
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    submit = SubmitField('Update Account')
+
+    # Validation for username: Must not be taken by another account username
+    def validate_username(self, username):
+        if username.data != current_user.username:
+            user = registerUser.query.filter_by(username=username.data).first()
+            if user:
+                raise ValidationError('That username is taken. Please choose a different one.')
+
+    #Validation for email: Must not be taken by another account email
+    def validate_email(self, email):
+        if email.data != current_user.email:
+            user = registerUser.query.filter_by(email=email.data).first()
+            if user:
+                raise ValidationError('That email is taken. Please choose a different one.')
+
+
 @app.route('/')
 @app.route('/home')
 def home():
@@ -186,10 +210,24 @@ def logout():
     return redirect(url_for('home'))
 
 
-@app.route("/account")
+@app.route("/account", methods=['GET', 'POST'])
 @login_required #############**IMPORTANT TO UNCOMMENT WHEN DONE TESTING**################
 def account():
-    return render_template("account.html")
+    form = UpdateAccForm()
+
+    if form.validate_on_submit():
+        # If the form is valid, change the current user/email information to the form input information
+        current_user.username = form.username.data
+        current_user.email = form.email.data
+
+        db.session.commit()
+
+        return redirect(url_for('account'))
+    elif request.method == 'GET':
+        # Otherwise, if the form is invalid, replace any invalid form information with the current user/email information
+        form.username.data = current_user.username
+        form.email.data = current_user.email
+    return render_template("account.html", form=form)
 
 
 @app.route("/profile")
@@ -293,6 +331,11 @@ def post(post_id):
     # Query for the post with the unique ID if it exists
     post = Posts.query.get_or_404(post_id)
     return render_template('post.html', title=post.title, post=post)
+
+
+@app.route("/profile/specificProject")
+def specificProject():
+    return render_template('specificProject.html')
 
 
 # ----------------------------------------------------------
