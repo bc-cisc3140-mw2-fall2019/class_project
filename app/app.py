@@ -204,7 +204,7 @@ def editProfile():
     return render_template("editProfile.html")
 
 @app.route("/newProjects")
-def newPRoject():
+def newProject():
     return render_template("newProject.html")
 
 @app.route("/about")
