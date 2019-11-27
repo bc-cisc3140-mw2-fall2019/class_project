@@ -1,0 +1,22 @@
+Quality Control Team Report
+11-18-2019
+
+Group Members:
+Hareem Bokhari
+Cuishan Chen
+Menghong Chen
+Romer Chia
+Katie Solokhina
+FuYuan Yan
+
+	
+What has your team accomplished in the past week? 
+We tested the new frontend designs for the forgotPassword page, login page, register page, and reset password page. The functions are same
+as before. They add a little design for the layout and UI, but it seems like expanding through the webpage and not having a visually
+comfortable size. We will communicate with other teams for the layout. While we were trying to run the app.py file, there were some errors
+occuring(AttributeError). We will communicate with other teams about this and also our team member were studying python also, so we will
+also check into the code to find the problem.
+
+Will scheduling be affected? Are you waiting on another team for any features to finish? 
+We are waiting for other teams to let us know what work they have completed and what we can start testing. At the same time, we will check
+the error of the app.py file.
