@@ -3,7 +3,7 @@ from datetime import datetime
 from flask import Flask, render_template, request, url_for, flash, redirect, request, Blueprint
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
-from forms import FormRegister, FormLogin, ResetPasswordForm, PostForm
+from forms import FormRegister, FormLogin, ResetPasswordForm, PostForm, UpdateBio
 from flask_login import LoginManager, UserMixin, login_user, current_user, logout_user, login_required
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 from flask_wtf import FlaskForm
@@ -65,14 +65,17 @@ def load_user(user_id):
 # First name and last name
 # A unique email (valid), username, and password
 class registerUser(db.Model, UserMixin): #create our database https://www.youtube.com/watch?v=cYWiDiIUxQc different video
-    __tablename__ = 'user_login' # Name of our database table
+    __tablename__ = 'users_tb' # Name of our database table
     id = db.Column(db.Integer, primary_key = True, autoincrement = True) 
     fname = db.Column(db.String(20), nullable = False)
     lname = db.Column(db.String(30), nullable = False)
     email = db.Column(db.String(50), unique = True, nullable = False)
     username = db.Column(db.String(15), unique = True, nullable = False) 
-    password = db.Column(db.String(30), unique = False, nullable = False)
+    password = db.Column(db.String(50), unique = False, nullable = False)
+    occupation = db.Column(db.String(100))
+    bio = db.Column(db.String(100))
     posts = db.relationship('Posts', backref='author', lazy=True)
+    
 
     # Uses secret key to generate a token that lasts for 30 minutes (used for password reset)
     def getToken(self, expires_seconds=1800):
@@ -101,7 +104,7 @@ class Posts(db.Model):
     title = db.Column(db.String(100), nullable=False)
     date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     content = db.Column(db.Text, nullable=False)
-    id = db.Column(db.Integer, db.ForeignKey('user_login.id'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users_tb.id'), nullable=False)
 
     # def __repr__(self):
     #     return f"Post('{self.title}', '{self.date_posted}')"
@@ -170,7 +173,7 @@ def register():
     if form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
         
-        registration = registerUser(fname=request.form.get('fname'), lname=request.form.get('lname'), email=request.form.get('email'), username=request.form.get('user'), password=hashed_password)
+        registration = registerUser(fname=request.form.get('fname'), lname=request.form.get('lname'), email=request.form.get('email'), username=request.form.get('user'), password=hashed_password, occupation="No Occupation", bio="N/A")
 
         db.session.add(registration)  
         db.session.commit()  
@@ -236,10 +239,23 @@ def profile():
     return render_template("profile.html")
 
 
-@app.route("/editProfile")
+@app.route("/editProfile", methods=['GET', 'POST'])
 @login_required ####### ********IMPORTNAT********** TO UNCOMMENT WHEN DONE TESTING remove login required to work on the page without logging in###################################
 def editProfile():
-    return render_template("editProfile.html")
+    form = UpdateBio()
+
+    if form.validate_on_submit():
+        current_user.occupation = form.occupation.data
+        current_user.bio = form.bio.data
+
+        db.session.commit()
+
+        return redirect(url_for('editProfile'))
+    elif request.method == 'GET':
+        # Otherwise, if the form is invalid, replace any invalid form information with the current user/email information
+        form.occupation.data = current_user.occupation
+        form.bio.data = current_user.bio
+    return render_template("editProfile.html", form=form)
 
 @app.route("/newProjects")
 def newProject():

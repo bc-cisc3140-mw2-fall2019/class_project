@@ -12,7 +12,7 @@
             <h5 class="card-title"><a class="mr-2" href="#">{{ post.author.username }}</a></h5>
         </div>
         <div class="card-body">
-            <h2><a class="card-title" href="{{ url_for('post', post_id=post.id) }}">{{ post.title }}</a></h2>
+            <h2><a class="card-title" href="{{ url_for('post', post_id=post.post_id) }}">{{ post.title }}</a></h2>
             <p class="card-text">{{ post.content }}</p>
         </div>
         <div class="card-footer">

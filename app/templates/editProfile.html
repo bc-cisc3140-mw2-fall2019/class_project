@@ -16,9 +16,8 @@
 					<div class="col-md-12">
 						<div class="profile-info-div">
 							<img src="../static/pictures/blank-profile.png" alt="Texto Alternativo" class=" profile-pic img-circle img-thumbnail">
-							<h2>John Doe</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-							tempor incididunt ut labore et dolore magna aliqua.</p>
+							<h2>{{ current_user.fname }} {{ current_user.lname }}</h2>
+							<p>{{ current_user.bio }}</p>
 							
 						</div>
 					</div>
@@ -27,10 +26,11 @@
 			<div class="col-md-7 well" id="rightPanel">
 				<div class="row">
 		<div class="col-md-12">
-			<form role="form">
+			<form method="POST" action="">
+                {{ form.hidden_tag() }}
 				<h2 class="form-title">Edit your profile</h2>
 				<hr class="colorgraph">
-				<div class="row">
+				<!-- <div class="row">
 					<div class="col-xs-12 col-sm-6 col-md-6">
 						<div class="form-group">
 							<input type="text" name="first_name" id="first_name" class="form-control input-lg" placeholder="First Name" tabindex="1">
@@ -41,21 +41,26 @@
 							<input type="text" name="last_name" id="last_name" class="form-control input-lg" placeholder="Last Name" tabindex="2">
 						</div>
 					</div>
-				</div>
+				</div> -->
 				<div class="form-group">
-					<input type="occupation" name="occupation" id="occupation" class="form-control input-lg" placeholder="occupation" tabindex="4">
+					{{ form.occupation.label() }}
+					{{ form.occupation() }}
 				</div>
 				<div class="row">
 					<div class="col-xs-12 col-sm-12 col-md-12">
 						<div class="form-group">
-							<textarea class="form-control input-lg bio-description" name="bio" placeholder="edit your profile bio description"></textarea>
+							<!-- <textarea class="form-control input-lg bio-description" name="bio" placeholder="edit your profile bio description"></textarea>
+							 -->
+							{{ form.bio.label() }}
+							{{ form.bio() }}
 						</div>
 					</div>
 				</div>
 				<hr class="colorgraph">
 				<div class="row">
-					<div class="col-xs-12 col-md-6"></div>
-					<div class="col-xs-12 col-md-6"><a href="#" class="btn formLabel btn-block btn-lg">Save</a></div>
+					{{ form.submit() }}
+					<!-- <div class="col-xs-12 col-md-6"></div>
+					<div class="col-xs-12 col-md-6"><a href="#" class="btn formLabel btn-block btn-lg">Save</a></div> -->
 				</div>
 			</form>
 		</div>
