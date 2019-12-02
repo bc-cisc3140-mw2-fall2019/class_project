@@ -121,12 +121,12 @@ html{
 
 .carousel-control-prev {
     left: -11%;
-    background-color: #c7b9b9;
+    background-color: #c48c8c;
     width: 10%;
 }
 .carousel-control-next {
     right: -11%;
-    background-color: #c7b9b9;
+    background-color: #c48c8c;
     width: 10%;
 }
 .carousel-control-prev-icon:after {

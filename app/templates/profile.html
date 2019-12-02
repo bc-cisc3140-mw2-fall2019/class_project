@@ -1,14 +1,14 @@
 <!-- Python code is temporarily disabled until a route is implemented. -->
 
-<html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+{% extends "layout.html" %}
+{% block head %}
+
 <link rel="stylesheet" type="text/css" href="../static/css/profile.css">
-
-</head>
-
-<body>
+{% endblock %}
+	
+{% block content %}
 <section>
 	<nav>
 		<img src ="../../bulldog.png" alt="brooklyn college icon" height=50% width=100%>
@@ -204,21 +204,20 @@
 		</div>	
 	</article>
 </section>
-
 <script>
 function tab(event, tabName) {
-  var i, info, buttongroup;
-  info = document.getElementsByClassName("info");
-  for (i = 0; i < info.length; i++) {
-    info[i].style.display = "none";
+	var i, info, buttongroup;
+	info = document.getElementsByClassName("info");
+	for (i = 0; i < info.length; i++) {
+	  info[i].style.display = "none";
+	}
+	buttongroup = document.getElementsByClassName("buttongroup");
+	for (i = 0; i < buttongroup.length; i++) {
+	  buttongroup[i].className = buttongroup[i].className.replace(" active", "");
+	}
+	document.getElementById(tabName).style.display = "block";
+	event.currentTarget.className += " active";
   }
-  buttongroup = document.getElementsByClassName("buttongroup");
-  for (i = 0; i < buttongroup.length; i++) {
-    buttongroup[i].className = buttongroup[i].className.replace(" active", "");
-  }
-  document.getElementById(tabName).style.display = "block";
-  event.currentTarget.className += " active";
-}
 </script>
-</body>
-</html>
+{% endblock %}
+

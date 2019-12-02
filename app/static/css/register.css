@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 body {
-  background: linear-gradient(45deg, rgba(125, 50, 93, 0.28) 0%, rgba(171, 91, 80, 0.48) 100%);
-  color: rgba(0, 0, 0, 0.6);
+  /* background: linear-gradient(45deg, rgba(125, 50, 93, 0.28) 0%, rgba(171, 91, 80, 0.48) 100%);
+  color: rgba(0, 0, 0, 0.6); */
   font-family: "Roboto", sans-serif;
   font-size: 14px;
   line-height: 1.6em;
