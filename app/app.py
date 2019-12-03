@@ -1,4 +1,5 @@
 import os
+import json
 from datetime import datetime
 from flask import Flask, render_template, request, url_for, flash, redirect, request, Blueprint
 from flask_sqlalchemy import SQLAlchemy
@@ -104,6 +105,7 @@ class Posts(db.Model):
     title = db.Column(db.String(100), nullable=False)
     date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     content = db.Column(db.Text, nullable=False)
+    likes = db.Column(db.Integer, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users_tb.id'), nullable=False)
 
     # def __repr__(self):
@@ -155,6 +157,7 @@ class UpdateAccForm(FlaskForm):
 def home():
     # Query every post to the front page
     posts = Posts.query.all()
+    posts.reverse()
     return render_template('index.html', posts=posts)
 
 
@@ -332,7 +335,8 @@ def newPost():
     form = PostForm()
     if form.validate_on_submit():
         # Create a row in the Post table with the information provided in the form
-        post = Posts(title=form.title.data, content=form.content.data, author=current_user)
+        post = Posts(title=form.title.data,
+                     content=form.content.data, author=current_user, likes=1)
 
         # Add the row to the database, commit the addition, and redirect to home page with the new post
         db.session.add(post)
@@ -352,6 +356,23 @@ def post(post_id):
 @app.route("/profile/specificProject")
 def specificProject():
     return render_template('specificProject.html')
+
+
+@app.route("/upvote", methods=['POST'])
+@login_required
+def upvote():
+    if request.method == "POST":
+        data_received = json.loads(request.data)
+        print(data_received)
+        post = Posts.query.filter_by(post_id=data_received['postid']).first()
+
+        if post:
+            setattr(post, "likes", post.likes + 1)
+            db.session.commit()
+
+            return json.dumps({'status': 'success'})
+        return json.dumps({'status': 'no post found'})
+    return redirect(url_for('index'))
 
 
 # ----------------------------------------------------------

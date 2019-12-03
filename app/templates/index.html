@@ -4,6 +4,19 @@
     <a href="{{ url_for('login') }}">Login</a> -->
     <!-- <div class="row"> -->
     <!-- <div class="card-deck" > -->
+    <div class="btn-group" style="margin-left: 25%;">
+        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            Sort by
+        </button>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="{{ url_for('home') }}">New</a>
+            <!-- <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Separated link</a> -->
+        </div>
+    </div>
     {% for post in posts %}
     <!-- <div class="col-sm-3">  -->
     
@@ -15,18 +28,46 @@
         <div class="card-body">
          
             <p class="card-text">{{ post.content }}</p>
+            <div>
+                <span class="badge badge-warning">{{ post.likes }}</span>
+                {% if current_user.is_authenticated %}
+                <button type="button" class="btn btn-outline-success btn-sm" id="click-btn"
+                    data-postid="{{ post.post_id }}">Upvote</button>
+                {% else %}
+                {% endif %}
+            </div>
         </div>
         <div class="card-footer">
             <h6 class="card-subtitle mb-2 text-muted"><small class="text-muted">{{ post.date_posted }}</small></h6>
             <h5 class="card-title"><a class="mr-2" href="#">- {{ post.author.username }}</a></h5>
+            <h6 class="card-title"><a class="mr-2" href="#"> {{ post.author.email }}</a></h6>
         </div>
     </div>
     
     <!-- </div> -->
     {% endfor %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).on('click', '#click-btn', function (event) {
+            $.ajax({
+                url: '/upvote',
+                type: "post",
+                contentType: 'application/json;charset=UTF-8',
+                dataType: "json",
+                data: JSON.stringify({ 'postid': $('#click-btn').data('postid') }),
+                success: function (response) {
+                    console.log(response);
+                },
+                error: function (xhr) {
+                    console.log(xhr);
+                }
+            });
+            event.preventDefault();
+        });
+    </script>
     <!-- </div> -->
     <!-- </div> -->
-    {% with messages = get_flashed_messages(with_categories=true) %}
+    <!-- {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
             {% for category, message in messages %}
                 <div>
@@ -34,5 +75,5 @@
                 </div>
             {% endfor %}
         {% endif %}
-    {% endwith %}
+    {% endwith %} -->
 {% endblock %}
