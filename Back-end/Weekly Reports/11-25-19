@@ -1,0 +1,33 @@
+What has your team accomplished in the past week? 
+
+  Re-designed multiple templates and functionality within the templates, e.g. register and login. 
+  Added requirements.txt for a list of dependencies. 
+  Added a Procfile.
+  New routes. (about, account, etc.)
+  New "Post" class for the Post table in the database.
+  Posts are shown on index or root template.
+  Ability to create new posts and view specific posts.
+  Error handling (templates) for 403, 404, and 500.
+  Validation for updating account username and email to prevent duplicates.
+  Added ability to set occupation and a biography.
+  Misc. updates to style/functionality.
+  
+Did your team encounter unexpected hurdles?
+
+  No. 
+
+How will your team work through any hurdle(s)? 
+
+  Assist each other on Slack.
+  
+What tools worked, what didn’t? 
+
+  Flask is still being used.
+
+Will there be any shifts or changes in the features your team will be working on? 
+
+  Just a few changes and fixes to get a working version running.
+
+Will scheduling be affected? Are you waiting on another team for any features to finish? 
+
+  N/A
