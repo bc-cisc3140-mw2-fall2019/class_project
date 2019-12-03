@@ -2,7 +2,7 @@
 	border: 3px solid black;
 	width: 50%;
 	font-size: 16px;
-	background-color: #ffff00;
+	background-color: #7b2240;
 }
 
 .form_format {
@@ -26,14 +26,20 @@
 	padding-bottom: 10px;
 }
 
+body {
+	background-color: #fdcd3bb8;
+}
+
 h1 {
 	margin-left: 80px;
+	color: #ffffff;
 }
 
 label {
 	border: 3px solid black;
 	font-size: 36px;
-	background-color: #ffff00;
+	background-color: #7b2240;
+	color: #ffffff;
 }
 
 #user, #password {
@@ -47,7 +53,9 @@ label {
 	font-size: 36px;
 	margin-top: 50px;
 	margin-bottom: 50px;
-	background-color: 
+	border-color: #7b2240;
+	background-color: #7b2240;
+	color: #ffffff;
 }
 
 #userError, #passError {
