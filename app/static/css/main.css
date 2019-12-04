@@ -1,6 +1,6 @@
 body{
   /* background: linear-gradient(45deg, rgba(125, 50, 93, 0.28) 0%, rgba(171, 91, 80, 0.48) 100%); */
-  background-color: #fdcd3bb8 !important;
+  background-color: #fdcc3b7a !important;
  
 }
  .formLabel {
@@ -38,7 +38,7 @@ body{
 }
 .navbar {
   /* background-color: #8f2c4dd9 !important; */
-  background: linear-gradient(494deg, rgba(143, 44, 77, 0.8509803921568627)59%, rgb(123, 34, 64) 75%);
+  background: linear-gradient(494deg, rgba(143, 44, 77, 0.7509803921568627)59%, rgb(123, 34, 64, .98) 75%);
   -webkit-box-shadow: 0px 7px 5px 0px rgba(0,0,0,0.17);
   -moz-box-shadow: 0px 7px 5px 0px rgba(0,0,0,0.17);
   box-shadow: 0px 7px 5px 0px rgba(0,0,0,0.17);
