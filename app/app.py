@@ -164,7 +164,7 @@ class UpdateAccForm(FlaskForm):
 @app.route('/')
 @app.route('/home')
 def home():
-    # Query every post to the front page
+    # Query every post to the front page, sorted by newest post
     posts = Posts.query.all()
     posts.reverse()
     return render_template('index.html', posts=posts)
@@ -174,6 +174,13 @@ def home():
 def old():
     posts = Posts.query.all()
     return render_template('old.html', posts=posts)
+
+
+@app.route('/home/best')
+def best():
+    posts = Posts.query.all()
+    posts.sort(key=lambda x: x.likes, reverse=True)
+    return render_template('best.html', posts=posts)
 
 
 @app.route('/register', methods=['GET', 'POST'])
