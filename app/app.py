@@ -13,12 +13,12 @@ from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationE
 from flask_mail import Mail, Message
 app = Flask(__name__, template_folder="templates")
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://user:password@127.0.0.1:3306/dbName'#setup a connection mysql://username:password@localhost/database https://flask-sqlalchemy.palletsprojects.com/en/2.x/config/#connection-uri-format not sure why "+pymysql" is needed but without it, it didnt let me connect. cant find where i found the fix
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://user:password@127.0.0.1:3306/dbName'#setup a connection mysql://username:password@localhost/database https://flask-sqlalchemy.palletsprojects.com/en/2.x/config/#connection-uri-format not sure why "+pymysql" is needed but without it, it didnt let me connect. cant find where i found the fix
 app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+mysqlconnector://{username}:{password}@{hostname}/{databasename}".format(
-     username="user",
+     username="username",
      password="password",
      hostname="127.0.0.1:3306",
-    databasename="dbName",
+    databasename="dbNAme",
 )
 
 # Note: in order to not store passwords in the file, you must set up environment variables for:
@@ -30,7 +30,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+mysqlconnector://{username}:{pass
 # TO SET UP AN ENVIRONMENT VARIABLE: https://www.youtube.com/watch?v=IolxqkL7cD8
 
 # Use this format for DATABASE_URI environment variable: 'mysql+pymysql://user:password@127.0.0.1:3306/dbName'
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('C_DATABASE_URI')
+#app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('C_DATABASE_URI')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False #removes warnings 
 
 # For example, set environment variable to: 24293eea8e681f56845df519bac0a473 Link to set up EV: https://www.youtube.com/watch?v=IolxqkL7cD8
@@ -44,13 +44,24 @@ bcrypt = Bcrypt(app) #set encrypt variable
 login_manager = LoginManager(app)
 login_manager.login_view = 'login'
 
-app.config['MAIL_SERVER'] = 'smtp.googlemail.com'
-app.config['MAIL_PORT'] = 587
-app.config['MAIL_USE_TLS'] = True
+# app.config['MAIL_SERVER'] = 'smtp.googlemail.com'
+# app.config['MAIL_PORT'] = 587
+# app.config['MAIL_USE_TLS'] = True
+# set configuration and instantiate mail
+
+mail_settings = {
+    "MAIL_SERVER": 'smtp.googlemail.com',
+    "MAIL_PORT": 587,
+    "MAIL_USE_TLS": True,
+    "MAIL_USE_SSL": False,
+    "MAIL_USERNAME": os.environ.get('EMAIL_USER'),
+    "MAIL_PASSWORD": os.getenv('EMAIL_PASS')
+}
 
 # The following two must be set as environment variables
-app.config['MAIL_USERNAME'] = os.environ.get('EMAIL_USER')
-app.config['MAIL_PASSWORD'] = os.environ.get('EMAIL_PASS')
+# app.config['MAIL_USERNAME'] = os.environ.get('EMAIL_USER')
+# app.config['MAIL_PASSWORD'] = os.environ.get('EMAIL_PASS')
+app.config.update(mail_settings)
 mail = Mail(app)
 
 
