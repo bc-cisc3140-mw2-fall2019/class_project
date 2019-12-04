@@ -15,10 +15,7 @@ app = Flask(__name__, template_folder="templates")
 
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://user:password@127.0.0.1:3306/dbName'#setup a connection mysql://username:password@localhost/database https://flask-sqlalchemy.palletsprojects.com/en/2.x/config/#connection-uri-format not sure why "+pymysql" is needed but without it, it didnt let me connect. cant find where i found the fix
 app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+mysqlconnector://{username}:{password}@{hostname}/{databasename}".format(
-     username="username",
-     password="password",
-     hostname="127.0.0.1:3306",
-    databasename="dbNAme",
+      
 )
 
 # Note: in order to not store passwords in the file, you must set up environment variables for:
@@ -86,6 +83,7 @@ class registerUser(db.Model, UserMixin): #create our database https://www.youtub
     password = db.Column(db.String(50), unique = False, nullable = False)
     occupation = db.Column(db.String(100))
     bio = db.Column(db.String(100))
+    github_link = db.Column(db.String(100))
     posts = db.relationship('Posts', backref='author', lazy=True)
     
 
@@ -267,7 +265,7 @@ def editProfile():
     if form.validate_on_submit():
         current_user.occupation = form.occupation.data
         current_user.bio = form.bio.data
-
+        current_user.github_link = form.github_link.data
         db.session.commit()
 
         return redirect(url_for('editProfile'))
@@ -275,6 +273,7 @@ def editProfile():
         # Otherwise, if the form is invalid, replace any invalid form information with the current user/email information
         form.occupation.data = current_user.occupation
         form.bio.data = current_user.bio
+        form.github_link.data = current_user.github_link
     return render_template("editProfile.html", form=form)
 
 @app.route("/newProjects")
