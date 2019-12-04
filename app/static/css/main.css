@@ -25,7 +25,9 @@ body{
   border-radius: 50%;
   border: 2px solid white;
 }
-
+.message{
+  font-weight: bold;
+}
 .nav-link{
   font-weight: bold;
   color: white !important;
