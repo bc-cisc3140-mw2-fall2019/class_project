@@ -172,6 +172,12 @@ def home():
     return render_template('index.html', posts=posts)
 
 
+@app.route('/home/old')
+def old():
+    posts = Posts.query.all()
+    return render_template('old.html', posts=posts)
+
+
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
