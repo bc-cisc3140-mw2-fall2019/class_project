@@ -15,9 +15,11 @@
                             <h1 class="form-title">Login</h1>
                         </div>
                 {{ form.user.label() }}
-                <span onfocusout="validUser()" required> {{ form.user(placeholder="username") }} </span>
+                <span onfocusout="validUser()" required> {{ form.user(placeholder="username") }} </span> <br>
+				<div id = "userError"></div> <br>
                 {{ form.password.label() }}
-                <span onfocusout="validPass();" required> {{ form.password(placeholder="password") }} </span>
+                <span onfocusout="validPass();" required> {{ form.password(placeholder="password") }} </span> <br>
+				<div id = "passError"></div> <br>
                 {{ form.submit(class="formLabel") }}
                 <p class="message">Not registered? <a class="formAnchor" href="{{ url_for('register') }}">Create an
                         account</a></p>
