@@ -1,4 +1,4 @@
-.specificProject_head {
+.newProject_head {
 	border: 3px solid black;
 	width: 50%;
 	font-size: 16px;
@@ -6,14 +6,7 @@
 	color: #ffffff;
 }
 
-.modify_button {
-	border: 3px solid black;
-	width: 10%;
-	font-size: 16px;
-	background-color: #ffff00;
-}
-
-.specificProject_format {
+.newProject_format {
 	border: 3px solid black;
 	background-color: #d3d3d3;
 }
@@ -28,18 +21,10 @@
 	padding-bottom: 10px;
 	padding-left: 67px;
 	padding-right: 67px;
-	border: 3px solid black;
-	font-size: 36px;
-	background-color: #7b2240;
-	color: #ffffff;
 }
 
 .num_label {
 	padding: 10px;
-	border: 3px solid black;
-	font-size: 36px;
-	background-color: #7b2240;
-	color: #ffffff;
 }
 
 .desc_label {
@@ -47,18 +32,14 @@
 	padding-bottom: 10px;
 	padding-left: 23px;
 	padding-right: 23px;
-	border: 3px solid black;
-	font-size: 36px;
-	background-color: #7b2240;
-	color: #ffffff;
 }
 
 .pextend {
 	width: 351px;
 }
 
-.name{
-	border: 1px solid black;
+body {
+	background-color: #fdcd3bb8;
 }
 	
 
@@ -66,19 +47,28 @@ h1 {
 	margin-left: 80px;
 }
 
+label {
+	border: 3px solid black;
+	font-size: 36px;
+	background-color: #7b2240;
+	color: #ffffff;
+}
+
 #project_name {
 	font-size: 36px;
 	padding: 10px;
 	width: 68%;
+	border: 1px solid black;
 }
 
 #num {
 	font-size: 36px;
 	padding: 10px;
 	width: 5%;
+	border: 1px solid black;
 }
 
-#desc{
+textarea{
 	font-size: 36px;
 	width: 70%;
 }
@@ -89,22 +79,15 @@ h1 {
 	margin-bottom: 50px;
 	border-color: #7b2240;
 	background-color: #7b2240;
-	color: #ffffff; 
+	color: #ffffff;
+}
+
+#numError {
+	color: #ff0000;
+	text-align: center;
+	font-size: 36px;
 }
 
 a {
 	font-size: 36px;
-}
-
-button {
-	float: right;
-	font-size: 36px;
-	margin-right: 50px;
-	margin-top: 25px;
-	background-color: #80ceeb;
-	border: 1px solid black;
-}
-
-body {
-	background-color: #fdcd3bb8;
 }

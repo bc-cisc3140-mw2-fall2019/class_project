@@ -1,0 +1,127 @@
+nav{
+	float: left;
+	width: 30%;
+	height: 1000px;
+	background: #f3f3f3;
+	padding: 0;
+}
+
+p.username{
+	border: solid;
+	text-align: center;
+	margin: 10%;
+	width: 59%;
+	padding: 10%;
+	border-width: 4px;
+	border-color: #ffffff;
+}
+
+button.edit{
+	height: 10%;
+	width: 80%;
+	margin: 10%;
+	padding: 10%;
+	border: solid;
+	border-width: 4px;
+	border-color: #ffffff;
+}
+
+article{
+	float:left;
+	/*width: 70%;*/
+	height: 1000px;
+	padding: 0;
+	/*background-color: #333333;*/
+	width: 70%;
+	background-color: #80ceeb;
+}
+
+section:after{
+	content: "";
+	display: table;
+	clear: both;
+}
+ul{
+	list-style-type: none;
+	padding; 0px;
+	margin: 0px;
+	overflow: hidden;
+	width: 96%;
+	background-color: #222;
+}
+
+li.buttongroup{
+	float: left;
+}
+
+a.menubutton{
+	color: white;
+	text-align: center;
+	text-decoration: none;
+	display: block;
+	height: 40px;
+	width: 85px;
+	margin: 1px;
+	padding: 15px;
+}
+
+li a:hover {
+    background-color: #111;
+}
+
+div.project{
+	float: left;
+	margin: 1px;
+	padding: 10px;
+	border: solid;
+	width: 92%; /* control the width for each project. */
+}
+div.name_place{
+	margin: 10px;
+	margin-top: 5px;
+	margin-left: 5px;
+	padding: 10px;
+	border: solid;
+}
+
+div.description_place{
+	margin: 10px;
+}
+
+div.inquiry_content{
+	width: 100%; <!-- here to control the size -->
+	height: 200px;
+}
+
+div.inquiry_left{
+	float: left;
+	border: solid;
+	width: 70%;
+	height: 100px;
+}
+
+div.inquiry_right{
+	float: left;
+	border: solid;	
+	width: 20%;
+	height: 100px;
+}
+
+div.inquiry_left_content{
+	margin: 0px;
+	padding: 10px;
+}
+
+button.inquiry_button{	
+	margin: 10px;
+	height: 80px;
+	width: 80px;
+<!-- here can control the button size, if you want (I did not use the percentage to size the button, it may go out of layout if we narrow the window.)-->
+}
+
+.cbutton{
+	width: 50%;
+	font-size: 16px;
+	background-color: #ffff00;
+	border: 1px solid black;
+}

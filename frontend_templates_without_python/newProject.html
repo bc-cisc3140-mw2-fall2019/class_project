@@ -1,0 +1,54 @@
+<!-- IMPORTANT NOTE: The back-end team should first create a copy of this HTML file, implement python code on that
+file, and place it onto apps/templates folder. Do NOT implement anything on the original file within the 
+front-end folder, as the front-end team are still working on this. (11/07/2019) -->
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width = device-width, initial-scale=1">
+	<title>New Project</title>
+	<link href="static/css/newProject.css" rel="stylesheet" style="text/css">
+</head>
+<body>
+	<div class="newProject_head"><h1>New Project</h1></div> <br>
+	<div class="newProject_format">
+		<div class="label_format">
+			<label for="project_name" class="name_label"><b>Project Name</b></label>
+			<input id="project_name" type="text" placeholder="Type Project Name Here" required>
+		</div>
+		<div class="label_format">
+			<label for="num" class="num_label"><b># of members needed</b></label>
+			<input id="num" type="text" onfocusout="validNum();" required> <br>
+			<div id = "numError" style="float: left;"></div>
+		</div>
+		<div class="label_format">
+			<table>
+				<tr>
+					<td class="pextend"><label for="desc" class="desc_label"><b>Project Description</b></label></td>
+					<td class="extend"><textarea type = "text" id="desc" rows="-5" placeholder="Type Project Description Here." required></textarea></td>
+				</tr>
+			</table>
+		</div> <br>
+	</div>
+	<div style="text-align: center;"> <input type="submit" value="Post" id="submit"> </div>
+	
+<script>
+function validNum() {
+    var number = document.getElementById('num').value;
+    var check = /^[0-9]+$/;
+    if (number.match(check) || number.length == 0) {
+        document.getElementById('num').style.borderColor = "black";
+        document.getElementById('numError').innerHTML = "";
+        document.getElementById('numError').style.display = none;
+    }
+    else {
+        document.getElementById('num').style.borderColor = "red";
+        document.getElementById('numError').innerHTML = "Please enter a number. If no requirements, leave it blank.";
+        document.getElementById('numError').style.visibility = "visible";
+    }
+}
+</script>
+</body>
+</html>
