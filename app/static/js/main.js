@@ -128,3 +128,18 @@ function validConfirmPass() {
         document.getElementById('confirmError').style.visibility = "visible";
     }
 }
+
+function validConfirmEmail() {
+    var confirmEmail = document.getElementById('confirmEmail').value;
+    var email = document.getElementById('email').value;
+    if (confirmEmail == email) {
+        document.getElementById('confirmEmail').style.borderColor = "black";
+        document.getElementById('matchEmailError').innerHTML = "";
+        document.getElementById('matchEmailError').style.display = none;
+    }
+    else {
+        document.getElementById('confirmEmail').style.borderColor = "red";
+        document.getElementById('matchEmailError').innerHTML = "Email do not match.";
+        document.getElementById('matchEmailError').style.visibility = "visible";
+    }
+}
