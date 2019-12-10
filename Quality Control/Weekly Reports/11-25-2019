@@ -1,0 +1,18 @@
+Quality Control Team Report
+11-25-2019
+
+Group Members:
+Hareem Bokhari
+Cuishan Chen
+Menghong Chen
+Romer Chia
+Katie Solokhina
+FuYuan Yan
+
+What has your team accomplished in the past week? 
+"While we were trying to run the app.py file, there were some errorsoccuring(AttributeError)."  <---One of the Last Week process
+We communicated with other teams, and the error was because we don't have the database in our local. As we tested through the week, 
+the error is still there. We are waiting for the database team to give us the database.
+
+Will scheduling be affected? Are you waiting on another team for any features to finish? 
+We are waiting for the database team to provide us the database in order to access all functions other teams created.
