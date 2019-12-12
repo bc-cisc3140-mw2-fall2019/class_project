@@ -1,6 +1,6 @@
-# CISC 3140 Class Project
+# Bulldog Buckets
 
-This is the class project for Fall 2019.
+This is the Fall 2019 CISC 3140 Class Project at Brooklyn College, Bulldog Buckets.
 
 ## Requirements
 
