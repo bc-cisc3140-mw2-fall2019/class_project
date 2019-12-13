@@ -10,7 +10,7 @@ Shradha Luintel
 
 Vivian Tom
 
-##**Responsibilities**
+## **Responsibilities**
 
 - Brainstorm various designs for the project
 - Develop user stories
