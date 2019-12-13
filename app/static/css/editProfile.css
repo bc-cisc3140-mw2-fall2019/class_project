@@ -22,6 +22,9 @@ body{
 .profile-pic{
 	width: 50%;
 }
+.bioLabelArea{
+	width: 80% !important;
+}
 .bio-description{
 	width: 100%;
 	min-height: 150px;

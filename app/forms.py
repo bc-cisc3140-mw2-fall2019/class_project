@@ -50,7 +50,7 @@ class PostForm(FlaskForm):
 
 class UpdateBio(FlaskForm):
     occupation = StringField('Occupation', validators=[DataRequired()])
-    bio = StringField('Biography', validators=[DataRequired()])
+    bio = TextAreaField('Biography', validators=[DataRequired()])
     github_link = StringField('Github Link', validators=[DataRequired()])
     submit = SubmitField('Update')
     

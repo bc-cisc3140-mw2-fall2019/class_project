@@ -13,10 +13,13 @@ from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationE
 from flask_mail import Mail, Message
 app = Flask(__name__, template_folder="templates")
 
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://user:password@127.0.0.1:3306/dbName'#setup a connection mysql://username:password@localhost/database https://flask-sqlalchemy.palletsprojects.com/en/2.x/config/#connection-uri-format not sure why "+pymysql" is needed but without it, it didnt let me connect. cant find where i found the fix
-app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+mysqlconnector://{username}:{password}@{hostname}/{databasename}".format(
-      
-)
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://username:password@127.0.0.1:3306/dbname'#setup a connection mysql://username:password@localhost/database https://flask-sqlalchemy.palletsprojects.com/en/2.x/config/#connection-uri-format not sure why "+pymysql" is needed but without it, it didnt let me connect. cant find where i found the fix
+# app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+mysqlconnector://{username}:{password}@{hostname}/{databasename}".format(
+#     username="users",
+#     password="password",
+#     hostname="127.0.0.1:3306",
+#     databasename="database name",
+# )
 
 # Note: in order to not store passwords in the file, you must set up environment variables for:
 # 1) database URI 
@@ -27,7 +30,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+mysqlconnector://{username}:{pass
 # TO SET UP AN ENVIRONMENT VARIABLE: https://www.youtube.com/watch?v=IolxqkL7cD8
 
 # Use this format for DATABASE_URI environment variable: 'mysql+pymysql://user:password@127.0.0.1:3306/dbName'
-#app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('C_DATABASE_URI')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('C_DATABASE_URI')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False #removes warnings 
 
 # For example, set environment variable to: 24293eea8e681f56845df519bac0a473 Link to set up EV: https://www.youtube.com/watch?v=IolxqkL7cD8
@@ -159,6 +162,8 @@ class UpdateAccForm(FlaskForm):
             user = registerUser.query.filter_by(email=email.data).first()
             if user:
                 raise ValidationError('That email is taken. Please choose a different one.')
+ 
+        
 
 
 @app.route('/')
@@ -198,7 +203,7 @@ def register():
     if form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
         
-        registration = registerUser(fname=request.form.get('fname'), lname=request.form.get('lname'), email=request.form.get('email'), username=request.form.get('user'), password=hashed_password, occupation="No Occupation", bio="N/A")
+        registration = registerUser(fname=request.form.get('fname'), lname=request.form.get('lname'), email=request.form.get('email'), username=request.form.get('user'), password=hashed_password, occupation="No Occupation", bio="N/A", github_link="N/A")
 
         db.session.add(registration)  
         db.session.commit()  
@@ -247,7 +252,6 @@ def account():
         # If the form is valid, change the current user/email information to the form input information
         current_user.username = form.username.data
         current_user.email = form.email.data
-
         db.session.commit()
 
         return redirect(url_for('account'))
@@ -307,8 +311,8 @@ def sendResetEmail(user):
 # Takes input for email, retrieves the user ID with that email from the database, and sends an email.
 @app.route("/forgotPassword", methods=['GET', 'POST'])
 def forgotPassword():
-    if current_user.is_authenticated:
-        return redirect(url_for('home'))
+    # if current_user.is_authenticated:
+    #     return redirect(url_for('home'))
 
     form = RequestResetForm()
 
